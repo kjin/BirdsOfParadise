@@ -1,0 +1,30 @@
+# ignore other folders
+proj.*/
+
+# except android
+!proj.android
+proj.android/*
+!proj.android/jni
+!proj.android/res
+
+# and iOS
+!proj.ios_mac
+proj.ios_mac/*
+!proj.ios_mac/Iridescence.xcodeproj
+
+# and windows
+!proj.win32
+proj.win32/*
+!proj.win32/Iridescence.sln
+!proj.win32/Iridescence.vcxproj
+!proj.win32/Iridescence.vcxproj.filters
+
+# ignore cocos2d-x files
+CMakeLists.txt
+
+# except the important ones
+!Classes/
+!Resources/
+
+# ignore output files
+*/output.txt
