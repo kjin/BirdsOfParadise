@@ -4,7 +4,11 @@ precision mediump float;
 
 uniform vec4 u_color;
 
+varying vec2 v_texcoord;
+varying vec4 v_normal;
+
 void main(void)
 {
-	gl_FragColor = u_color * vec4(vec3(.5,.5,.5), 1);
+    vec2 texcoord = v_texcoord;
+	gl_FragColor = u_color * vec4(v_normal.xyz / 2.0 + vec3(.5,.5,.5), 1);
 }

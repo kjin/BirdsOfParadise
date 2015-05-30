@@ -1,5 +1,7 @@
 #include "GameController.h"
 #include <vector>
+#include "OBJ.h"
+#include "GenUtils.h"
 
 using namespace std;
 USING_NS_CC;
@@ -30,7 +32,7 @@ bool GameController::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	Director::getInstance()->getRenderer()->setClearColor(Color4F::BLUE);
+	Director::getInstance()->getRenderer()->setClearColor(Color4F::BLACK);
 
 	auto defaultGLProgram = GLProgram::createWithFilenames("shaders/myShader.vert", "shaders/myShader.frag");
 	auto morphGLProgram = GLProgram::createWithFilenames("shaders/morph.vert", "shaders/morph.frag");
@@ -53,38 +55,16 @@ bool GameController::init()
 	// Init something that should turn into something interesting when vertex shaders are applied.
 	////////
 
-	// Vertices.
-	vector<float> vertices;
-	// Indices.
-	Mesh::IndexArray indices;
-	for (int i = 0; i < 300; i++)
-	{
-#define RAND_FLOAT (rand() % 100 / 100.0f)
-		Vec3 v(RAND_FLOAT, RAND_FLOAT, RAND_FLOAT);
-		v.scale((RAND_FLOAT - 0.5f));
-		vertices.push_back(v.x);
-		vertices.push_back(v.y);
-		vertices.push_back(v.z);
-		vertices.push_back(RAND_FLOAT + 0.5f);
-		indices.push_back(i);
-	}
-	
-	// Vertex Attributes
-	vector<MeshVertexAttrib> attributes;
-	MeshVertexAttrib attribute;
-	attribute.vertexAttrib = GLProgram::VERTEX_ATTRIB_POSITION;
-	attribute.size = 4;
-	attribute.attribSizeBytes = attribute.size * sizeof(float);
-	attribute.type = GL_FLOAT;
-	attributes.push_back(attribute);
+	OBJ obj(OBJ::Position | OBJ::Texture | OBJ::Normal);
+	obj.addAABB(0, 0, 0, 50, 50, 50);
 
-	auto mesh = Mesh::create(vertices, 4, indices, attributes);
+	auto mesh = GenUtils::OBJToCocos2dMesh(obj);
 
 	auto cluster = Sprite3D::create();
-	cluster->addMesh(mesh);
+	cluster->addMesh(mesh);//
 	cluster->setGLProgramState(morphGLProgramState);
-	cluster->setScale(100);
-	cluster->setPosition3D(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0)); //
+	cluster->setPosition3D(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0));
+	cluster->runAction(RotateBy::create(100.0f, Vec3(10 * 360, 20 * 360, 0)));
 	addChild(cluster);
     
     return true;

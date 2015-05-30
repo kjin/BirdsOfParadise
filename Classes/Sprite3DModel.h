@@ -7,7 +7,7 @@
 class Sprite3DModel : public cocos2d::Sprite3D, public Model
 {
 public:
-	CREATE_FUNC(Sprite3DModel);
+	static Sprite3DModel* createFromFile(const char* fileName);
 
 	bool init() override;
 };
