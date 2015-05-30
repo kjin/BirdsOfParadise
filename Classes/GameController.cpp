@@ -2,6 +2,7 @@
 #include <vector>
 #include "OBJ.h"
 #include "GenUtils.h"
+#include "Sprite3DModel.h"
 
 using namespace std;
 USING_NS_CC;
@@ -32,14 +33,11 @@ bool GameController::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	Director::getInstance()->getRenderer()->setClearColor(Color4F::BLACK);
+	Director::getInstance()->getRenderer()->setClearColor(Color4F::WHITE);
 
 	auto defaultGLProgram = GLProgram::createWithFilenames("shaders/myShader.vert", "shaders/myShader.frag");
-	auto morphGLProgram = GLProgram::createWithFilenames("shaders/morph.vert", "shaders/morph.frag");
 	
 	auto defaultGLProgramState = GLProgramState::getOrCreateWithGLProgram(defaultGLProgram);
-	auto morphGLProgramState = GLProgramState::getOrCreateWithGLProgram(morphGLProgram);
-	morphGLProgramState->setUniformVec4("u_position", Vec4(0, 0, 0, 0));
 
 	////////
 	// Init a unit sphere.
@@ -60,12 +58,18 @@ bool GameController::init()
 
 	auto mesh = GenUtils::OBJToCocos2dMesh(obj);
 
-	auto cluster = Sprite3D::create();
-	cluster->addMesh(mesh);//
-	cluster->setGLProgramState(morphGLProgramState);
+	auto cluster = Sprite3DModel::createFromFile("data/test.txt");
+	//auto cluster = Sprite3D::create();
+	//cluster->addMesh(mesh);
 	cluster->setPosition3D(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0));
+	cluster->setScale(10);
 	cluster->runAction(RotateBy::create(100.0f, Vec3(10 * 360, 20 * 360, 0)));
 	addChild(cluster);
+
+	auto texture = Director::getInstance()->getTextureCache()->addImage("textures/test.png");
+	auto leftOne = Sprite::createWithTexture(texture);
+	leftOne->setPosition(visibleSize.width / 2 - 300, visibleSize.height / 2);
+	addChild(leftOne);
     
     return true;
 }

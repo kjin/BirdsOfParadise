@@ -4,12 +4,15 @@
 #include "cocos2d.h"
 #include "Model.h"
 
+class OBJ;
+
 class Sprite3DModel : public cocos2d::Sprite3D, public Model
 {
+protected:
 public:
 	static Sprite3DModel* createFromFile(const char* fileName);
-
-	bool init() override;
+protected:
+	Sprite3DModel() {}
 };
 
 #endif
