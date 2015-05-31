@@ -1,4 +1,4 @@
-#include "Sprite3DModel.h"
+#include "SegmentedSprite3DModel.h"
 #include <string>
 #include "StringUtils.h"
 #include "OBJ.h"
@@ -7,7 +7,7 @@
 using namespace cocos2d;
 using namespace std;
 
-Sprite3DModel* Sprite3DModel::create(const char* inputFile, const OBJ* instanceShape, Texture2D* texture)
+SegmentedSprite3DModel* SegmentedSprite3DModel::create(const char* inputFile, const OBJ* instanceShape, Texture2D* texture)
 {
 	const int numPoints = 2000; // TODO Set this later
 	Vec3* positions = new Vec3[numPoints];
@@ -88,7 +88,7 @@ Sprite3DModel* Sprite3DModel::create(const char* inputFile, const OBJ* instanceS
 		glProgramState->setUniformVec2v("u_texCoords", numPoints, texCoords);
 		glProgramState->setUniformVec3v("u_instanceVertexPositions", objVertices.size(), instanceVertices);
 
-		Sprite3DModel* model = new Sprite3DModel(); //
+		SegmentedSprite3DModel* model = new SegmentedSprite3DModel();
 		if (model)
 		{
 			// Construct our mesh

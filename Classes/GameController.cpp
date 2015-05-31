@@ -2,7 +2,7 @@
 #include <vector>
 #include "OBJ.h"
 #include "GenUtils.h"
-#include "Sprite3DModel.h"
+#include "SegmentedSprite3DModel.h"
 
 using namespace std;
 USING_NS_CC;
@@ -55,10 +55,11 @@ bool GameController::init()
 	auto cube = Sprite3D::create("models/halfUnitCube.obj");
 	OBJ* obj = GenUtils::Cocos2dMeshToOBJ(cube->getMesh());
 
-	auto cluster = Sprite3DModel::create("data/test.txt", obj, Director::getInstance()->getTextureCache()->addImage("textures/test.png"));
+	auto cluster = SegmentedSprite3DModel::create("data/plane.txt", obj, Director::getInstance()->getTextureCache()->addImage("textures/plane.png"));
+	cluster->setColor(Color3B::RED);
 	cluster->setPosition3D(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0));
-	cluster->setScale(5);
-	cluster->runAction(RotateBy::create(100.0f, Vec3(10 * 360, 20 * 360, 0)));
+	cluster->setScale(2);
+	//cluster->runAction(RotateBy::create(100.0f, Vec3(10 * 360, 20 * 360, 0)));
 	addChild(cluster);
 
 	auto texture = Director::getInstance()->getTextureCache()->addImage("textures/test.png");
