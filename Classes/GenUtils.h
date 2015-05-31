@@ -9,7 +9,9 @@ class OBJ;
 class GenUtils
 {
 public:
-	static cocos2d::Mesh* OBJToCocos2dMesh(const OBJ& obj);
+	static cocos2d::Mesh* OBJToCocos2dMesh(const OBJ* obj);
+
+	static OBJ* Cocos2dMeshToOBJ(const cocos2d::Mesh* mesh);
 
 	static cocos2d::Mesh* CreateGeometryInstancedMesh(int numInstances, int verticesPerInstance, const std::vector<int>& instanceTriangulation);
 };

@@ -5,12 +5,12 @@
 using namespace cocos2d;
 using namespace std;
 
-Mesh* GenUtils::OBJToCocos2dMesh(const OBJ& obj)
+Mesh* GenUtils::OBJToCocos2dMesh(const OBJ* obj)
 {
-	OBJ::VertexDeclaration vertexDeclaration = obj.getVertexDeclaration();
+	OBJ::VertexDeclaration vertexDeclaration = obj->getVertexDeclaration();
 	size_t perVertexSize = OBJ::getVertexSizeInBytes(vertexDeclaration) / sizeof(float);
 
-	const vector<OBJ::Vertex>& objVertices = obj.getVertices();
+	const vector<OBJ::Vertex>& objVertices = obj->getVertices();
 	vector<float> vertices;
 	for (unsigned i = 0; i < objVertices.size(); i++)
 	{
@@ -37,7 +37,7 @@ Mesh* GenUtils::OBJToCocos2dMesh(const OBJ& obj)
 #endif
 	}
 
-	const vector<OBJ::Triangle>& objTriangles = obj.getTriangles();
+	const vector<OBJ::Triangle>& objTriangles = obj->getTriangles();
 	Mesh::IndexArray indices;
 	for (unsigned i = 0; i < objTriangles.size(); i++)
 	{
@@ -77,7 +77,117 @@ Mesh* GenUtils::OBJToCocos2dMesh(const OBJ& obj)
 	return mesh;
 }
 
-cocos2d::Mesh* GenUtils::CreateGeometryInstancedMesh(int numInstances, int verticesPerInstance, const vector<int>& instanceTriangulation)
+OBJ* GenUtils::Cocos2dMeshToOBJ(const Mesh* mesh)
+{
+	const MeshVertexData* vertexData = mesh->getMeshIndexData()->getMeshVertexData();
+
+	// get attributes
+	OBJ::VertexDeclaration vertexDeclaration = OBJ::Position;
+	int numAttributes = vertexData->getMeshVertexAttribCount();
+	for (int attrib = 0; attrib < numAttributes; attrib++)
+	{
+		auto attribute = vertexData->getMeshVertexAttrib(attrib);
+		switch (attribute.vertexAttrib)
+		{
+		case GLProgram::VERTEX_ATTRIB_POSITION:
+			vertexDeclaration |= OBJ::Position;
+			break;
+		case GLProgram::VERTEX_ATTRIB_TEX_COORD:
+			vertexDeclaration |= OBJ::Texture;
+			break;
+		case GLProgram::VERTEX_ATTRIB_NORMAL:
+			vertexDeclaration |= OBJ::Normal;
+			break;
+		}
+	}
+
+	//get vertices
+	vector<OBJ::Vertex> vertices;
+	// Number of vertices
+	int numVertices = vertexData->getVertexBuffer()->getVertexNumber();
+	// Size of vertex in floats (# attribute fields)
+	int vertexSize = vertexData->getVertexBuffer()->getSizePerVertex() / sizeof(float);
+	// Pointer to VBO
+	auto vertexVBO = vertexData->getVertexBuffer()->getVBO();
+	glBindBuffer(GL_ARRAY_BUFFER, vertexVBO);
+	// Pointer to mapped vertex buffer
+	float* vPtr = (float*)glMapBufferRange(GL_ARRAY_BUFFER, 0, numVertices * vertexSize, GL_MAP_READ_BIT);
+	for (int i = 0; i < numVertices; i++)
+	{
+		OBJ::Vertex vertex;
+		int j = 0;
+		for (int attrib = 0; attrib < numAttributes; attrib++)
+		{
+			auto attribute = vertexData->getMeshVertexAttrib(attrib);
+			switch (attribute.vertexAttrib)
+			{
+			case GLProgram::VERTEX_ATTRIB_POSITION:
+				assert(attribute.size >= 3);
+				vertex.set_vx(vPtr[i * vertexSize + j]).set_vy(vPtr[i * vertexSize + j + 1]).set_vz(vPtr[i * vertexSize + j + 2]);
+				break;
+			case GLProgram::VERTEX_ATTRIB_TEX_COORD:
+				assert(attribute.size >= 2);
+				vertex.set_vtx(vPtr[i * vertexSize + j]).set_vty(vPtr[i * vertexSize + j + 1]);
+				break;
+			case GLProgram::VERTEX_ATTRIB_NORMAL:
+				assert(attribute.size >= 3);
+				vertex.set_vnx(vPtr[i * vertexSize + j]).set_vny(vPtr[i * vertexSize + j + 1]).set_vnz(vPtr[i * vertexSize + j + 2]);
+				break;
+			}
+			j += attribute.size;
+		}
+		vertices.push_back(vertex);
+	}
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	// triangles
+	vector<OBJ::Triangle> triangles;
+	const MeshIndexData* indexData = mesh->getMeshIndexData();
+	// Number of indices
+	int numIndices = indexData->getIndexBuffer()->getIndexNumber();
+	// Number of triangles
+	assert(numIndices % 3 == 0);
+	int numTriangles = numIndices / 3;
+	// Whether indices are shorts or ints
+	auto indexFormat = indexData->getIndexBuffer()->getType();
+	// Index buffer identifier
+	auto indexVBO = indexData->getIndexBuffer()->getVBO();
+	glBindBuffer(GL_ARRAY_BUFFER, indexVBO);
+	// Pointer to mapped index buffer
+	void* ivPtr = glMapBufferRange(GL_ARRAY_BUFFER, 0, numIndices * indexData->getIndexBuffer()->getSizePerIndex(), GL_MAP_READ_BIT);
+	// Short pointer
+	unsigned short* iusPtr = (unsigned short*)ivPtr;
+	// Int pointer
+	unsigned int* iuiPtr = (unsigned int*)ivPtr;
+	for (int i = 0; i < numTriangles; i++)
+	{
+		OBJ::Triangle triangle;
+		if (indexFormat == IndexBuffer::IndexType::INDEX_TYPE_SHORT_16)
+		{
+			triangle.v1 = iusPtr[3 * i];
+			triangle.v2 = iusPtr[3 * i + 1];
+			triangle.v3 = iusPtr[3 * i + 2];
+		}
+		else // int
+		{
+			triangle.v1 = iuiPtr[3 * i];
+			triangle.v2 = iuiPtr[3 * i + 1];
+			triangle.v3 = iuiPtr[3 * i + 2];
+		}
+		triangles.push_back(triangle);
+	}
+	glUnmapBuffer(GL_ARRAY_BUFFER);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+	OBJ* obj = OBJ::create();
+	obj->setVertices(vertices);
+	obj->setTriangles(triangles);
+	obj->setVertexDeclaration(vertexDeclaration);
+	return obj;
+}
+
+Mesh* GenUtils::CreateGeometryInstancedMesh(int numInstances, int verticesPerInstance, const vector<int>& instanceTriangulation)
 {
 	vector<float> vertices;
 	for (unsigned i = 0; i < numInstances; i++)

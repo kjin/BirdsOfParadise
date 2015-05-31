@@ -1,5 +1,6 @@
 #define MAX_POINTS 2000
-#define INSTANCE_POINTS 36
+#define INSTANCE_TRIANGLES 12
+#define INSTANCE_POINTS 3 * INSTANCE_TRIANGLES
 
 attribute vec3 a_position;
 attribute vec2 a_texCoord;
