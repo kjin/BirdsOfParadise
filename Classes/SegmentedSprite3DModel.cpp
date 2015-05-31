@@ -9,6 +9,26 @@ using namespace std;
 
 SegmentedSprite3DModel* SegmentedSprite3DModel::create(const char* inputFile, const OBJ* instanceShape, Texture2D* texture)
 {
+	SegmentedSprite3DModel* model = new SegmentedSprite3DModel();
+	if (model->init(inputFile, instanceShape, texture))
+	{
+		return model;
+	}
+	else
+	{
+		model->release();
+		delete model;
+		return nullptr;
+	}
+}
+
+bool SegmentedSprite3DModel::init(const char* inputFile, const OBJ* instanceShape, Texture2D* texture)
+{
+	if (!Sprite3DModel::init())
+	{
+		return false;
+	}
+
 	const int numPoints = 2000; // TODO Set this later
 	Vec3* positions = new Vec3[numPoints];
 	Vec2* texCoords = new Vec2[numPoints];
@@ -88,21 +108,22 @@ SegmentedSprite3DModel* SegmentedSprite3DModel::create(const char* inputFile, co
 		glProgramState->setUniformVec2v("u_texCoords", numPoints, texCoords);
 		glProgramState->setUniformVec3v("u_instanceVertexPositions", objVertices.size(), instanceVertices);
 
-		SegmentedSprite3DModel* model = new SegmentedSprite3DModel();
-		if (model)
-		{
-			// Construct our mesh
-			auto mesh = GenUtils::CreateGeometryInstancedMesh(lineNo, objVertices.size(), triangulation);
-			model->_positions = positions;
-			model->_texCoords = texCoords;
-			model->_instanceVertices = instanceVertices;
-			model->setTexture(texture);
-			model->addMesh(mesh);
-			model->setGLProgramState(glProgramState);
-			model->_contentSize = model->getBoundingBox().size;
-			model->autorelease();
-			return model;
-		}
+		// Construct our mesh
+		auto mesh = GenUtils::CreateGeometryInstancedMesh(lineNo, objVertices.size(), triangulation);
+		// Assign to self
+		_positions = positions;
+		_texCoords = texCoords;
+		_instanceVertices = instanceVertices;
+		setTexture(texture);
+		addMesh(mesh);
+		setGLProgramState(glProgramState);
+		_contentSize = getBoundingBox().size;
+		return true;
 	}
-	return nullptr;
+	return false;
+}
+
+void SegmentedSprite3DModel::update(float deltaTime)
+{
+	Sprite3DModel::update(deltaTime);
 }

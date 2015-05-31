@@ -1,12 +1,12 @@
-#ifndef _BOP_SPRITE_3D_MODEL_H_
-#define _BOP_SPRITE_3D_MODEL_H_
+#ifndef _BOP_SEGMENTED_SPRITE_3D_MODEL_H_
+#define _BOP_SEGMENTED_SPRITE_3D_MODEL_H_
 
 #include "cocos2d.h"
-#include "Model.h"
+#include "Sprite3DModel.h"
 
 class OBJ;
 
-class SegmentedSprite3DModel : public cocos2d::Sprite3D, public Model
+class SegmentedSprite3DModel : public Sprite3DModel
 {
 protected:
 	cocos2d::Vec3* _instanceVertices;
@@ -15,6 +15,8 @@ protected:
 public:
 	static SegmentedSprite3DModel* create(const char* inputFile, const OBJ* instanceShape, cocos2d::Texture2D* texture);
 protected:
+	bool init(const char* inputFile, const OBJ* instanceShape, cocos2d::Texture2D* texture);
+
 	SegmentedSprite3DModel() {}
 
 	~SegmentedSprite3DModel()
@@ -23,6 +25,8 @@ protected:
 		delete[] _positions;
 		delete[] _texCoords;
 	}
+public:
+	void update(float deltaTime) override;
 };
 
 #endif
