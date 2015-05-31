@@ -7,13 +7,13 @@
 using namespace cocos2d;
 using namespace std;
 
-Sprite3DModel* Sprite3DModel::createFromFile(const char* fileName)
+Sprite3DModel* Sprite3DModel::create(const char* inputFile, const OBJ* instanceShape, Texture2D* texture)
 {
 	const int numPoints = 2000; // TODO Set this later
 	Vec3* positions = new Vec3[numPoints];
 	Vec2* texCoords = new Vec2[numPoints];
 
-	Data data = FileUtils::getInstance()->getDataFromFile(fileName);
+	Data data = FileUtils::getInstance()->getDataFromFile(inputFile);
 	if (!data.isNull())
 	{
 		string str((char*)(data.getBytes()));
@@ -53,38 +53,49 @@ Sprite3DModel* Sprite3DModel::createFromFile(const char* fileName)
 			}
 			if (!success)
 			{
-				CCLOG("BoP: warning: invalid input in file %s, line %d.", fileName, lineNo + 1);
+				CCLOG("BoP: warning: invalid input in file %s, line %d.", inputFile, lineNo + 1);
 			}
-			positions[lineNo] = Vec3(x, y, z);
-			texCoords[lineNo] = Vec2(tx, ty);
-			lineNo++;
+			else
+			{
+				positions[lineNo] = Vec3(x, y, z);
+				texCoords[lineNo] = Vec2(tx, ty);
+				lineNo++;
+			}
 		}
 
-		// Make a good triangulation. Let's start with a quad.
-		vector<int> triangulation;
-		triangulation.push_back(0);
-		triangulation.push_back(1);
-		triangulation.push_back(2);
-		triangulation.push_back(2);
-		triangulation.push_back(3);
-		triangulation.push_back(0);
+		// Vertices
+		const vector<OBJ::Vertex>& objVertices = instanceShape->getVertices();
+		Vec3* instanceVertices = new Vec3[objVertices.size()];
+		for (unsigned i = 0; i < objVertices.size(); i++)
+		{
+			instanceVertices[i] = Vec3(objVertices[i].vx, objVertices[i].vy, objVertices[i].vz);
+		}
 
-		// temporary
-		auto texture = Director::getInstance()->getTextureCache()->addImage("textures/test.png");
+		// Triangles
+		const vector<OBJ::Triangle>& objTriangles = instanceShape->getTriangles();
+		vector<int> triangulation;
+		for (unsigned i = 0; i < objTriangles.size(); i++)
+		{
+			triangulation.push_back(objTriangles[i].v1);
+			triangulation.push_back(objTriangles[i].v2);
+			triangulation.push_back(objTriangles[i].v3);
+		}
 
 		auto glProgram = GLProgram::createWithFilenames("shaders/morph.vert", "shaders/morph.frag");
 		auto glProgramState = GLProgramState::getOrCreateWithGLProgram(glProgram);
 		glProgramState->setUniformTexture("u_texture", texture);
 		glProgramState->setUniformVec3v("u_positions", numPoints, positions);
 		glProgramState->setUniformVec2v("u_texCoords", numPoints, texCoords);
+		glProgramState->setUniformVec3v("u_instanceVertexPositions", objVertices.size(), instanceVertices);
 
 		Sprite3DModel* model = new Sprite3DModel(); //
 		if (model)
 		{
 			// Construct our mesh
-			auto mesh = GenUtils::CreateGeometryInstancedMesh(1793, 4, triangulation);
+			auto mesh = GenUtils::CreateGeometryInstancedMesh(lineNo, objVertices.size(), triangulation);
 			model->_positions = positions;
 			model->_texCoords = texCoords;
+			model->_instanceVertices = instanceVertices;
 			model->setTexture(texture);
 			model->addMesh(mesh);
 			model->setGLProgramState(glProgramState);

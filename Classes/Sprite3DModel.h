@@ -10,10 +10,11 @@ class Sprite3DModel : public cocos2d::Sprite3D, public Model
 {
 protected:
 	// delete[] these!
+	cocos2d::Vec3* _instanceVertices;
 	cocos2d::Vec3* _positions;
 	cocos2d::Vec2* _texCoords;
 public:
-	static Sprite3DModel* createFromFile(const char* fileName);
+	static Sprite3DModel* create(const char* inputFile, const OBJ* instanceShape, cocos2d::Texture2D* texture);
 protected:
 	Sprite3DModel() {}
 };

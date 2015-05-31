@@ -54,11 +54,11 @@ bool GameController::init()
 	////////
 
 	OBJ obj(OBJ::Position | OBJ::Texture | OBJ::Normal);
-	obj.addAABB(0, 0, 0, 50, 50, 50);
+	obj.addAABB(0, 0, 0, 1, 1, 1);
 
 	auto mesh = GenUtils::OBJToCocos2dMesh(obj);
 
-	auto cluster = Sprite3DModel::createFromFile("data/test.txt");
+	auto cluster = Sprite3DModel::create("data/test.txt", &obj, Director::getInstance()->getTextureCache()->addImage("textures/test.png"));
 	cluster->setPosition3D(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0));
 	cluster->setScale(5);
 	cluster->runAction(RotateBy::create(100.0f, Vec3(10 * 360, 20 * 360, 0)));
