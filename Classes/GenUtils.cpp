@@ -76,3 +76,45 @@ Mesh* GenUtils::OBJToCocos2dMesh(const OBJ& obj)
 	//mesh->autorelease();
 	return mesh;
 }
+
+cocos2d::Mesh* GenUtils::CreateGeometryInstancedMesh(int numInstances, int verticesPerInstance, const vector<int>& instanceTriangulation)
+{
+	vector<float> vertices;
+	for (unsigned i = 0; i < numInstances; i++)
+	{
+		for (unsigned j = 0; j < verticesPerInstance; j++)
+		{
+			vertices.push_back(rand() * 10 - 5);
+			vertices.push_back(rand() * 10 - 5);
+			vertices.push_back(rand() * 10 - 5);
+			vertices.push_back(i);
+			vertices.push_back(j);
+		}
+	}
+
+	Mesh::IndexArray indices;
+	for (unsigned i = 0; i < numInstances; i++)
+	{
+		for (unsigned j = 0; j < instanceTriangulation.size(); j++)
+		{
+			indices.push_back(i * verticesPerInstance + instanceTriangulation[j]);
+		}
+	}
+
+	// Vertex Attributes
+	vector<MeshVertexAttrib> attributes;
+	MeshVertexAttrib attribute;
+	attribute.type = GL_FLOAT; // it's always this
+	attribute.vertexAttrib = GLProgram::VERTEX_ATTRIB_POSITION;
+	attribute.size = 3;
+	attribute.attribSizeBytes = attribute.size * sizeof(float);
+	attributes.push_back(attribute);
+
+	attribute.vertexAttrib = GLProgram::VERTEX_ATTRIB_TEX_COORD;
+	attribute.size = 2;
+	attribute.attribSizeBytes = attribute.size * sizeof(float);
+	attributes.push_back(attribute);
+	auto mesh = Mesh::create(vertices, 5, indices, attributes);
+	//mesh->autorelease();
+	return mesh;
+}

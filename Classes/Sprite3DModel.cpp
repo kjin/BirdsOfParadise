@@ -9,7 +9,9 @@ using namespace std;
 
 Sprite3DModel* Sprite3DModel::createFromFile(const char* fileName)
 {
-	OBJ obj(OBJ::Position | OBJ::Texture | OBJ::Normal);
+	const int numPoints = 2000; // TODO Set this later
+	Vec3* positions = new Vec3[numPoints];
+	Vec2* texCoords = new Vec2[numPoints];
 
 	Data data = FileUtils::getInstance()->getDataFromFile(fileName);
 	if (!data.isNull())
@@ -51,24 +53,38 @@ Sprite3DModel* Sprite3DModel::createFromFile(const char* fileName)
 			}
 			if (!success)
 			{
-				CCLOG("BoP warning: invalid input in file %s, line %d.", fileName, lineNo);
+				CCLOG("BoP: warning: invalid input in file %s, line %d.", fileName, lineNo + 1);
 			}
-			obj.addAABB(x, y, z, 1, 1, 1, tx, ty);
+			positions[lineNo] = Vec3(x, y, z);
+			texCoords[lineNo] = Vec2(tx, ty);
 			lineNo++;
 		}
+
+		// Make a good triangulation. Let's start with a quad.
+		vector<int> triangulation;
+		triangulation.push_back(0);
+		triangulation.push_back(1);
+		triangulation.push_back(2);
+		triangulation.push_back(2);
+		triangulation.push_back(3);
+		triangulation.push_back(0);
 
 		// temporary
 		auto texture = Director::getInstance()->getTextureCache()->addImage("textures/test.png");
 
 		auto glProgram = GLProgram::createWithFilenames("shaders/morph.vert", "shaders/morph.frag");
 		auto glProgramState = GLProgramState::getOrCreateWithGLProgram(glProgram);
-		glProgramState->setUniformVec4("u_position", Vec4(0, 0, 0, 0));
 		glProgramState->setUniformTexture("u_texture", texture);
+		glProgramState->setUniformVec3v("u_positions", numPoints, positions);
+		glProgramState->setUniformVec2v("u_texCoords", numPoints, texCoords);
 
-		Sprite3DModel* model = new Sprite3DModel();
+		Sprite3DModel* model = new Sprite3DModel(); //
 		if (model)
 		{
-			auto mesh = GenUtils::OBJToCocos2dMesh(obj);
+			// Construct our mesh
+			auto mesh = GenUtils::CreateGeometryInstancedMesh(1793, 4, triangulation);
+			model->_positions = positions;
+			model->_texCoords = texCoords;
 			model->setTexture(texture);
 			model->addMesh(mesh);
 			model->setGLProgramState(glProgramState);

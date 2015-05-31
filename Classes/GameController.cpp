@@ -37,7 +37,7 @@ bool GameController::init()
 
 	auto defaultGLProgram = GLProgram::createWithFilenames("shaders/myShader.vert", "shaders/myShader.frag");
 	
-	auto defaultGLProgramState = GLProgramState::getOrCreateWithGLProgram(defaultGLProgram);
+	auto defaultGLProgramState = GLProgramState::getOrCreateWithGLProgram(defaultGLProgram); //
 
 	////////
 	// Init a unit sphere.
@@ -59,10 +59,8 @@ bool GameController::init()
 	auto mesh = GenUtils::OBJToCocos2dMesh(obj);
 
 	auto cluster = Sprite3DModel::createFromFile("data/test.txt");
-	//auto cluster = Sprite3D::create();
-	//cluster->addMesh(mesh);
 	cluster->setPosition3D(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0));
-	cluster->setScale(10);
+	cluster->setScale(5);
 	cluster->runAction(RotateBy::create(100.0f, Vec3(10 * 360, 20 * 360, 0)));
 	addChild(cluster);
 

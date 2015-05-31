@@ -1,18 +1,36 @@
-// Actually used as direction
 attribute vec3 a_position;
 attribute vec2 a_texCoord;
-attribute vec3 a_normal;
 
-uniform vec4 u_position;
+uniform vec3 u_positions[2000];
+uniform vec2 u_texCoords[2000];
 
 varying vec2 v_texCoord;
 varying vec4 v_normal;
 
 void main()
 {
-    v_normal = vec4(a_normal, 0);
-    v_texCoord = vec2(1 - a_texCoord.x, a_texCoord.y);
-    //gl_Position = CC_MVPMatrix * vec4((2.0 + sin(CC_Time.w)) * a_position, 1);
-    gl_Position = CC_MVPMatrix * vec4(a_position, 1);
-    //gl_Position = CC_MVPMatrix * (u_position + vec4(sin(CC_Time.w * direction.w) * direction.xyz, 1));
+    int instanceID = int(a_texCoord.x);
+    int vertexID = int(a_texCoord.y);
+    v_normal = vec4(0, 0, 1, 1);
+    v_texCoord = u_texCoords[instanceID];
+    v_texCoord.y = 1 - v_texCoord.y;
+    
+    vec4 position = vec4(u_positions[instanceID], 1);
+    if (vertexID == 0)
+    {
+        position.xy += vec2(-0.5, -0.5);
+    }
+    if (vertexID == 1)
+    {
+        position.xy += vec2(0.5, -0.5);
+    }
+    if (vertexID == 2)
+    {
+        position.xy += vec2(0.5, 0.5);
+    }
+    if (vertexID == 3)
+    {
+        position.xy += vec2(-0.5, 0.5);
+    }
+    gl_Position = CC_MVPMatrix * position;
 }
