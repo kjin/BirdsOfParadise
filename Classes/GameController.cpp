@@ -3,6 +3,10 @@
 #include "OBJ.h"
 #include "GenUtils.h"
 #include "PlayerModel.h"
+#include "GameState.h"
+#include "InputState.h"
+#include "InputController.h"
+#include "PlayerController.h"
 
 using namespace std;
 USING_NS_CC;
@@ -35,14 +39,38 @@ bool GameController::init()
 
 	Director::getInstance()->getRenderer()->setClearColor(Color4F::WHITE);
 
+	_label = Label::create();
+	_label->setColor(Color3B::BLACK);
+	_label->setPosition(visibleSize.width / 2, visibleSize.height / 2 - 50);
+	_label->setString("This is a test.");
+	addChild(_label);
+
+	// Add input to the story
+	_gameState = new GameState();
+	_inputController = InputController::create(_gameState->_inputState, _eventDispatcher);
+	_inputController->retain();
+
+	// Player model //
 	auto plane = PlayerModel::create();
 	plane->setColor(Color3B::RED);
+	plane->setScale(2);
 	plane->setModelPosition(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0));
+	plane->setModelDampeningFactor(0.8);
 	addChild(plane);
+	// Control our dear player
+	_playerController = PlayerController::create(_gameState, plane);
+
+	scheduleUpdate();
     
     return true;
 }
 
+void GameController::update(float deltaTime)
+{
+	// whoop de doo
+	_label->setString(_gameState->getInputState()->isKeyDown(EventKeyboard::KeyCode::KEY_SPACE) ? "down" : "up");
+	_playerController->update(deltaTime);
+}
 
 void GameController::menuCloseCallback(Ref* pSender)
 {

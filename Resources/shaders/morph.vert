@@ -19,6 +19,6 @@ void main()
     v_normal = vec4(0, 0, 1, 1);
     v_texCoord = u_texCoords[instanceID];
     v_texCoord.y = v_texCoord.y;
-    vec4 position = vec4(u_positions[instanceID] + u_instanceVertexPositions[vertexID] * sin((CC_Time.w + 1) / 2 + u_positions[instanceID].y / 40), 1);
+    vec4 position = vec4(u_positions[instanceID] + u_instanceVertexPositions[vertexID], 1);
     gl_Position = CC_MVPMatrix * position;
 }
