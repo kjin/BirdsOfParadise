@@ -10,14 +10,14 @@ proj.android/*
 # and iOS
 !proj.ios_mac
 proj.ios_mac/*
-!proj.ios_mac/Iridescence.xcodeproj
+!proj.ios_mac/BirdsOfParadise.xcodeproj
 
 # and windows
 !proj.win32
 proj.win32/*
-!proj.win32/Iridescence.sln
-!proj.win32/Iridescence.vcxproj
-!proj.win32/Iridescence.vcxproj.filters
+!proj.win32/BirdsOfParadise.sln
+!proj.win32/BirdsOfParadise.vcxproj
+!proj.win32/BirdsOfParadise.vcxproj.filters
 
 # ignore cocos2d-x files
 CMakeLists.txt
@@ -28,3 +28,4 @@ CMakeLists.txt
 
 # ignore output files
 */output.txt
+.DS_Store

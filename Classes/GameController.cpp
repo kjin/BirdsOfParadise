@@ -55,6 +55,7 @@ bool GameController::init()
 	plane->setColor(Color3B::RED);
 	plane->setScale(2);
 	plane->setModelPosition(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0));
+	plane->runAction(RotateBy::create(100, Vec3(3600, 0, 0)));
 	plane->setModelDampeningFactor(0.8);
 	addChild(plane);
 	// Control our dear player
