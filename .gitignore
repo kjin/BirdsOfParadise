@@ -16,7 +16,11 @@ proj.ios_mac/ios/*
 !proj.ios_mac/mac
 proj.ios_mac/mac/*
 !proj.ios_mac/mac/Info.plist
+!proj.ios_mac/mac/Icon.icns
+!proj.ios_mac/mac/main.cpp
+!proj.ios_mac/mac/Prefix.pch
 !proj.ios_mac/BirdsOfParadise.xcodeproj
+proj.ios_mac/BirdsOfParadise.xcodeproj/xcuserdata
 
 # and windows
 !proj.win32
