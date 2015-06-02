@@ -10,6 +10,12 @@ proj.android/*
 # and iOS
 !proj.ios_mac
 proj.ios_mac/*
+!proj.ios_mac/ios
+proj.ios_mac/ios/*
+!proj.ios_mac/ios/Info.plist
+!proj.ios_mac/mac
+proj.ios_mac/mac/*
+!proj.ios_mac/mac/Info.plist
 !proj.ios_mac/BirdsOfParadise.xcodeproj
 
 # and windows
