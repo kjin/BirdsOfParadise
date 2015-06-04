@@ -144,9 +144,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\InputController.cpp" />
     <ClCompile Include="..\Classes\OBJ.cpp" />
     <ClCompile Include="..\Classes\PlayerController.cpp" />
-    <ClCompile Include="..\Classes\PlayerModel.cpp" />
-    <ClCompile Include="..\Classes\SegmentedSprite3DModel.cpp" />
-    <ClCompile Include="..\Classes\Sprite3DModel.cpp" />
+    <ClCompile Include="..\Classes\PlayerView.cpp" />
+    <ClCompile Include="..\Classes\SegmentedSprite3DView.cpp" />
+    <ClCompile Include="..\Classes\Sprite3DView.cpp" />
     <ClCompile Include="..\Classes\StringUtils.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -161,9 +161,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\GameController.h" />
     <ClInclude Include="..\Classes\OBJ.h" />
     <ClInclude Include="..\Classes\PlayerController.h" />
-    <ClInclude Include="..\Classes\PlayerModel.h" />
-    <ClInclude Include="..\Classes\SegmentedSprite3DModel.h" />
-    <ClInclude Include="..\Classes\Sprite3DModel.h" />
+    <ClInclude Include="..\Classes\PlayerView.h" />
+    <ClInclude Include="..\Classes\SegmentedSprite3DView.h" />
+    <ClInclude Include="..\Classes\Sprite3DView.h" />
     <ClInclude Include="..\Classes\StringUtils.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

@@ -6,14 +6,12 @@
 
 class OBJ;
 
-class Sprite3DModel : public cocos2d::Sprite3D, public Model
+class Sprite3DView : public cocos2d::Sprite3D
 {
 protected:
-	cocos2d::Vec3* _instanceVertices;
-	cocos2d::Vec3* _positions;
-	cocos2d::Vec2* _texCoords;
+	const Model* _model;
 protected:
-	Sprite3DModel() {}
+	bool initWithModel(const Model* model);
 
 	bool init() override;
 

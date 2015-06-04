@@ -1,4 +1,4 @@
-#include "SegmentedSprite3DModel.h"
+#include "SegmentedSprite3DView.h"
 #include <string>
 #include "StringUtils.h"
 #include "OBJ.h"
@@ -7,24 +7,24 @@
 using namespace cocos2d;
 using namespace std;
 
-SegmentedSprite3DModel* SegmentedSprite3DModel::create(const char* inputFile, const OBJ* instanceShape, Texture2D* texture)
+SegmentedSprite3DView* SegmentedSprite3DView::create(const Model* model, const char* inputFile, const OBJ* instanceShape, Texture2D* texture)
 {
-	SegmentedSprite3DModel* model = new SegmentedSprite3DModel();
-	if (model->init(inputFile, instanceShape, texture))
+	SegmentedSprite3DView* view = new SegmentedSprite3DView();
+	if (view->init(model, inputFile, instanceShape, texture))
 	{
-		return model;
+		return view;
 	}
 	else
 	{
-		model->release();
-		delete model;
+		view->release();
+		delete view;
 		return nullptr;
 	}
 }
 
-bool SegmentedSprite3DModel::init(const char* inputFile, const OBJ* instanceShape, Texture2D* texture)
+bool SegmentedSprite3DView::init(const Model* model, const char* inputFile, const OBJ* instanceShape, Texture2D* texture)
 {
-	if (!Sprite3DModel::init())
+	if (!Sprite3DView::initWithModel(model))
 	{
 		return false;
 	}
@@ -123,7 +123,7 @@ bool SegmentedSprite3DModel::init(const char* inputFile, const OBJ* instanceShap
 	return false;
 }
 
-void SegmentedSprite3DModel::update(float deltaTime)
+void SegmentedSprite3DView::update(float deltaTime)
 {
-	Sprite3DModel::update(deltaTime);
+	Sprite3DView::update(deltaTime);
 }
