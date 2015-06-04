@@ -155,7 +155,7 @@ OBJ* GenUtils::Cocos2dMeshToOBJ(const Mesh* mesh)
 	auto indexVBO = indexData->getIndexBuffer()->getVBO();
 	glBindBuffer(GL_ARRAY_BUFFER, indexVBO);
 	// Pointer to mapped index buffer
-	void* ivPtr = glMapBufferRange(GL_ARRAY_BUFFER, 0, numIndices * indexData->getIndexBuffer()->getSizePerIndex(), GL_MAP_READ_BIT);
+	void* ivPtr = glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY);
 	// Short pointer
 	unsigned short* iusPtr = (unsigned short*)ivPtr;
 	// Int pointer

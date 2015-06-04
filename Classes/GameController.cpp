@@ -2,7 +2,7 @@
 #include <vector>
 #include "OBJ.h"
 #include "GenUtils.h"
-#include "PlayerModel.h"
+#include "PlayerView.h"
 #include "GameState.h"
 #include "InputState.h"
 #include "InputController.h"
@@ -47,19 +47,16 @@ bool GameController::init()
 
 	// Add input to the story
 	_gameState = new GameState();
-	_inputController = InputController::create(_gameState->_inputState, _eventDispatcher);
+	_inputController = InputController::create(_gameState->getInputState(), _eventDispatcher);
 	_inputController->retain();
 
-	// Player model //
-	auto plane = PlayerModel::create();
-	plane->setColor(Color3B::RED);
-	plane->setScale(2);
-	plane->setModelPosition(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0));
-	plane->runAction(RotateBy::create(100, Vec3(3600, 0, 0)));
-	plane->setModelDampeningFactor(0.8);
-	addChild(plane);
+	// Player view //
+	auto playerView = PlayerView::create(_gameState->getPlayerModel());
+	playerView->setColor(Color3B::RED);
+	playerView->setScale(2);
+	addChild(playerView);
 	// Control our dear player
-	_playerController = PlayerController::create(_gameState, plane);
+	_playerController = PlayerController::create(_gameState, _gameState->getPlayerModel());
 
 	scheduleUpdate();
     
@@ -70,6 +67,7 @@ void GameController::update(float deltaTime)
 {
 	// whoop de doo
 	_label->setString(_gameState->getInputState()->isKeyDown(EventKeyboard::KeyCode::KEY_SPACE) ? "down" : "up");
+	_gameState->update(deltaTime);
 	_playerController->update(deltaTime);
 }
 
