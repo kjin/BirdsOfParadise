@@ -111,7 +111,7 @@ OBJ* GenUtils::Cocos2dMeshToOBJ(const Mesh* mesh)
 	auto vertexVBO = vertexData->getVertexBuffer()->getVBO();
 	glBindBuffer(GL_ARRAY_BUFFER, vertexVBO);
 	// Pointer to mapped vertex buffer
-	float* vPtr = (float*)glMapBufferRange(GL_ARRAY_BUFFER, 0, numVertices * vertexSize, GL_MAP_READ_BIT);
+	float* vPtr = (float*)glMapBuffer(GL_ARRAY_BUFFER, GL_READ_ONLY);
 	for (int i = 0; i < numVertices; i++)
 	{
 		OBJ::Vertex vertex;

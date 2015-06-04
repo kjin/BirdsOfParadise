@@ -60,12 +60,6 @@
 		8D0CBE901B1FFBEE00027AC4 /* OBJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE7B1B1FFBEE00027AC4 /* OBJ.cpp */; };
 		8D0CBE911B1FFBEE00027AC4 /* PlayerController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE7D1B1FFBEE00027AC4 /* PlayerController.cpp */; };
 		8D0CBE921B1FFBEE00027AC4 /* PlayerController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE7D1B1FFBEE00027AC4 /* PlayerController.cpp */; };
-		8D0CBE931B1FFBEE00027AC4 /* PlayerModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE7F1B1FFBEE00027AC4 /* PlayerModel.cpp */; };
-		8D0CBE941B1FFBEE00027AC4 /* PlayerModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE7F1B1FFBEE00027AC4 /* PlayerModel.cpp */; };
-		8D0CBE951B1FFBEE00027AC4 /* SegmentedSprite3DModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE811B1FFBEE00027AC4 /* SegmentedSprite3DModel.cpp */; };
-		8D0CBE961B1FFBEE00027AC4 /* SegmentedSprite3DModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE811B1FFBEE00027AC4 /* SegmentedSprite3DModel.cpp */; };
-		8D0CBE971B1FFBEE00027AC4 /* Sprite3DModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE831B1FFBEE00027AC4 /* Sprite3DModel.cpp */; };
-		8D0CBE981B1FFBEE00027AC4 /* Sprite3DModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE831B1FFBEE00027AC4 /* Sprite3DModel.cpp */; };
 		8D0CBE991B1FFBEE00027AC4 /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE851B1FFBEE00027AC4 /* StringUtils.cpp */; };
 		8D0CBE9A1B1FFBEE00027AC4 /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D0CBE851B1FFBEE00027AC4 /* StringUtils.cpp */; };
 		8D0CBEA11B1FFC0100027AC4 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 8D0CBE9B1B1FFC0100027AC4 /* data */; };
@@ -80,6 +74,12 @@
 		8D0CBEAA1B1FFC0100027AC4 /* shaders in Resources */ = {isa = PBXBuildFile; fileRef = 8D0CBE9F1B1FFC0100027AC4 /* shaders */; };
 		8D0CBEAB1B1FFC0100027AC4 /* textures in Resources */ = {isa = PBXBuildFile; fileRef = 8D0CBEA01B1FFC0100027AC4 /* textures */; };
 		8D0CBEAC1B1FFC0100027AC4 /* textures in Resources */ = {isa = PBXBuildFile; fileRef = 8D0CBEA01B1FFC0100027AC4 /* textures */; };
+		8DF168601B20131A0028DA0D /* PlayerView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1685A1B20131A0028DA0D /* PlayerView.cpp */; };
+		8DF168611B20131A0028DA0D /* PlayerView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1685A1B20131A0028DA0D /* PlayerView.cpp */; };
+		8DF168621B20131A0028DA0D /* SegmentedSprite3DView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1685C1B20131A0028DA0D /* SegmentedSprite3DView.cpp */; };
+		8DF168631B20131A0028DA0D /* SegmentedSprite3DView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1685C1B20131A0028DA0D /* SegmentedSprite3DView.cpp */; };
+		8DF168641B20131A0028DA0D /* Sprite3DView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1685E1B20131A0028DA0D /* Sprite3DView.cpp */; };
+		8DF168651B20131A0028DA0D /* Sprite3DView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1685E1B20131A0028DA0D /* Sprite3DView.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -180,12 +180,6 @@
 		8D0CBE7C1B1FFBEE00027AC4 /* OBJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBJ.h; sourceTree = "<group>"; };
 		8D0CBE7D1B1FFBEE00027AC4 /* PlayerController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerController.cpp; sourceTree = "<group>"; };
 		8D0CBE7E1B1FFBEE00027AC4 /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
-		8D0CBE7F1B1FFBEE00027AC4 /* PlayerModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerModel.cpp; sourceTree = "<group>"; };
-		8D0CBE801B1FFBEE00027AC4 /* PlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerModel.h; sourceTree = "<group>"; };
-		8D0CBE811B1FFBEE00027AC4 /* SegmentedSprite3DModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentedSprite3DModel.cpp; sourceTree = "<group>"; };
-		8D0CBE821B1FFBEE00027AC4 /* SegmentedSprite3DModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedSprite3DModel.h; sourceTree = "<group>"; };
-		8D0CBE831B1FFBEE00027AC4 /* Sprite3DModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite3DModel.cpp; sourceTree = "<group>"; };
-		8D0CBE841B1FFBEE00027AC4 /* Sprite3DModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite3DModel.h; sourceTree = "<group>"; };
 		8D0CBE851B1FFBEE00027AC4 /* StringUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtils.cpp; sourceTree = "<group>"; };
 		8D0CBE861B1FFBEE00027AC4 /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		8D0CBE9B1B1FFC0100027AC4 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
@@ -194,6 +188,12 @@
 		8D0CBE9E1B1FFC0100027AC4 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		8D0CBE9F1B1FFC0100027AC4 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
 		8D0CBEA01B1FFC0100027AC4 /* textures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = textures; sourceTree = "<group>"; };
+		8DF1685A1B20131A0028DA0D /* PlayerView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerView.cpp; sourceTree = "<group>"; };
+		8DF1685B1B20131A0028DA0D /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		8DF1685C1B20131A0028DA0D /* SegmentedSprite3DView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SegmentedSprite3DView.cpp; sourceTree = "<group>"; };
+		8DF1685D1B20131A0028DA0D /* SegmentedSprite3DView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedSprite3DView.h; sourceTree = "<group>"; };
+		8DF1685E1B20131A0028DA0D /* Sprite3DView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite3DView.cpp; sourceTree = "<group>"; };
+		8DF1685F1B20131A0028DA0D /* Sprite3DView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite3DView.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -332,6 +332,12 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8DF1685A1B20131A0028DA0D /* PlayerView.cpp */,
+				8DF1685B1B20131A0028DA0D /* PlayerView.h */,
+				8DF1685C1B20131A0028DA0D /* SegmentedSprite3DView.cpp */,
+				8DF1685D1B20131A0028DA0D /* SegmentedSprite3DView.h */,
+				8DF1685E1B20131A0028DA0D /* Sprite3DView.cpp */,
+				8DF1685F1B20131A0028DA0D /* Sprite3DView.h */,
 				8D0CBE701B1FFBEE00027AC4 /* Controller.h */,
 				8D0CBE711B1FFBEE00027AC4 /* GameController.cpp */,
 				8D0CBE721B1FFBEE00027AC4 /* GameController.h */,
@@ -347,12 +353,6 @@
 				8D0CBE7C1B1FFBEE00027AC4 /* OBJ.h */,
 				8D0CBE7D1B1FFBEE00027AC4 /* PlayerController.cpp */,
 				8D0CBE7E1B1FFBEE00027AC4 /* PlayerController.h */,
-				8D0CBE7F1B1FFBEE00027AC4 /* PlayerModel.cpp */,
-				8D0CBE801B1FFBEE00027AC4 /* PlayerModel.h */,
-				8D0CBE811B1FFBEE00027AC4 /* SegmentedSprite3DModel.cpp */,
-				8D0CBE821B1FFBEE00027AC4 /* SegmentedSprite3DModel.h */,
-				8D0CBE831B1FFBEE00027AC4 /* Sprite3DModel.cpp */,
-				8D0CBE841B1FFBEE00027AC4 /* Sprite3DModel.h */,
 				8D0CBE851B1FFBEE00027AC4 /* StringUtils.cpp */,
 				8D0CBE861B1FFBEE00027AC4 /* StringUtils.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
@@ -557,16 +557,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D0CBE931B1FFBEE00027AC4 /* PlayerModel.cpp in Sources */,
 				8D0CBE8D1B1FFBEE00027AC4 /* InputController.cpp in Sources */,
 				8D0CBE8B1B1FFBEE00027AC4 /* GenUtils.cpp in Sources */,
 				8D0CBE871B1FFBEE00027AC4 /* GameController.cpp in Sources */,
 				8D0CBE991B1FFBEE00027AC4 /* StringUtils.cpp in Sources */,
 				8D0CBE891B1FFBEE00027AC4 /* GameState.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				8D0CBE951B1FFBEE00027AC4 /* SegmentedSprite3DModel.cpp in Sources */,
+				8DF168641B20131A0028DA0D /* Sprite3DView.cpp in Sources */,
+				8DF168621B20131A0028DA0D /* SegmentedSprite3DView.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
-				8D0CBE971B1FFBEE00027AC4 /* Sprite3DModel.cpp in Sources */,
+				8DF168601B20131A0028DA0D /* PlayerView.cpp in Sources */,
 				8D0CBE911B1FFBEE00027AC4 /* PlayerController.cpp in Sources */,
 				8D0CBE8F1B1FFBEE00027AC4 /* OBJ.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -578,18 +578,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DF168631B20131A0028DA0D /* SegmentedSprite3DView.cpp in Sources */,
 				8D0CBE9A1B1FFBEE00027AC4 /* StringUtils.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				8D0CBE901B1FFBEE00027AC4 /* OBJ.cpp in Sources */,
 				8D0CBE8A1B1FFBEE00027AC4 /* GameState.cpp in Sources */,
 				8D0CBE881B1FFBEE00027AC4 /* GameController.cpp in Sources */,
-				8D0CBE961B1FFBEE00027AC4 /* SegmentedSprite3DModel.cpp in Sources */,
-				8D0CBE981B1FFBEE00027AC4 /* Sprite3DModel.cpp in Sources */,
 				8D0CBE8C1B1FFBEE00027AC4 /* GenUtils.cpp in Sources */,
 				8D0CBE8E1B1FFBEE00027AC4 /* InputController.cpp in Sources */,
 				8D0CBE921B1FFBEE00027AC4 /* PlayerController.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
-				8D0CBE941B1FFBEE00027AC4 /* PlayerModel.cpp in Sources */,
+				8DF168651B20131A0028DA0D /* Sprite3DView.cpp in Sources */,
+				8DF168611B20131A0028DA0D /* PlayerView.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
