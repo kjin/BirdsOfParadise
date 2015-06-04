@@ -9,18 +9,30 @@ proj.android/*
 
 # and iOS
 !proj.ios_mac
-proj.ios_mac/*
-!proj.ios_mac/ios
-proj.ios_mac/ios/*
-!proj.ios_mac/ios/Info.plist
-!proj.ios_mac/mac
-proj.ios_mac/mac/*
-!proj.ios_mac/mac/Info.plist
-!proj.ios_mac/mac/Icon.icns
-!proj.ios_mac/mac/main.cpp
-!proj.ios_mac/mac/Prefix.pch
-!proj.ios_mac/BirdsOfParadise.xcodeproj
-proj.ios_mac/BirdsOfParadise.xcodeproj/xcuserdata
+
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## Build generated
+build/
+DerivedData
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
 
 # and windows
 !proj.win32
