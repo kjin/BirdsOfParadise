@@ -187,18 +187,18 @@ OBJ* GenUtils::Cocos2dMeshToOBJ(const Mesh* mesh)
 	return obj;
 }
 
-Mesh* GenUtils::CreateGeometryInstancedMesh(int numInstances, int verticesPerInstance, const vector<int>& instanceTriangulation)
+Mesh* GenUtils::CreateGeometryInstancedMesh(int numInstances, int verticesPerInstance, const vector<int>& instanceTriangulation, const Vec2* texCoords)
 {
 	vector<float> vertices;
 	for (unsigned i = 0; i < numInstances; i++)
 	{
 		for (unsigned j = 0; j < verticesPerInstance; j++)
 		{
-			vertices.push_back(rand() * 10 - 5);
-			vertices.push_back(rand() * 10 - 5);
-			vertices.push_back(rand() * 10 - 5);
 			vertices.push_back(i);
-			vertices.push_back(j);
+            vertices.push_back(j);
+            vertices.push_back(0);
+            vertices.push_back(texCoords[i].x);
+            vertices.push_back(texCoords[i].y);
 		}
 	}
 

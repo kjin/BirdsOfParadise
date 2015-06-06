@@ -29,7 +29,7 @@ bool SegmentedSprite3DView::init(const Model* model, const char* inputFile, cons
 		return false;
 	}
 
-	const int numPoints = 2000; // TODO Set this later
+	const int numPoints = 960; // TODO Set this later
 	Vec3* positions = new Vec3[numPoints];
 	Vec2* texCoords = new Vec2[numPoints];
 
@@ -105,14 +105,12 @@ bool SegmentedSprite3DView::init(const Model* model, const char* inputFile, cons
 		auto glProgramState = GLProgramState::getOrCreateWithGLProgram(glProgram);
 		glProgramState->setUniformTexture("u_texture", texture);
 		glProgramState->setUniformVec3v("u_positions", numPoints, positions);
-		glProgramState->setUniformVec2v("u_texCoords", numPoints, texCoords);
 		glProgramState->setUniformVec3v("u_instanceVertexPositions", objVertices.size(), instanceVertices);
 
 		// Construct our mesh
-		auto mesh = GenUtils::CreateGeometryInstancedMesh(lineNo, objVertices.size(), triangulation);
+		auto mesh = GenUtils::CreateGeometryInstancedMesh(lineNo, objVertices.size(), triangulation, texCoords);
 		// Assign to self
 		_positions = positions;
-		_texCoords = texCoords;
 		_instanceVertices = instanceVertices;
 		setTexture(texture);
 		addMesh(mesh);
