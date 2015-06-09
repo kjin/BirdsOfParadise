@@ -9,6 +9,8 @@ proj.android/*
 
 # and iOS
 !proj.ios_mac
+# ignore iOS for now, since I don't have a device
+proj.ios_mac/ios
 
 # Xcode
 #

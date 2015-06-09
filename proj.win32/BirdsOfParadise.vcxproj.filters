@@ -13,90 +13,159 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Model">
+      <UniqueIdentifier>{07f003b5-c2aa-4887-92ff-52e5e090793f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{25d490cd-eac7-4a07-980d-793d00562e56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{e38f570a-c3c0-4793-a415-36002842a787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Controller">
+      <UniqueIdentifier>{3de86158-cdef-40bc-8ffe-ccee913327a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Controller">
+      <UniqueIdentifier>{2ca053ac-4078-4d2f-b66a-5d60e7da199a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Model">
+      <UniqueIdentifier>{41bc07e6-54d0-47de-b6a2-99e687781541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{69337184-0fb6-496e-8f48-232e1e75947d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{504f36ac-24e7-4723-91c5-671cfbfdde93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Internal">
+      <UniqueIdentifier>{494e7561-6091-425d-8095-265a5878b340}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Internal">
+      <UniqueIdentifier>{86bd8e7c-5a55-48b0-8618-b54032f4ec82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\Classes\Controller.cpp">
+      <Filter>Source Files\Controller</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\GameController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\StringUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\GenUtils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\OBJ.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Controller</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\InputController.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Controller</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\PlayerController.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BulletManager.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\GameState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SegmentedSprite3DView.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\Classes\Model.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Sprite3DView.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\View</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\PlayerView.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SegmentedSprite3DView.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StringUtils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GenUtils.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\OBJ.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Source Files\Internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BulletController.cpp">
+      <Filter>Source Files\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PlaneModel.cpp">
+      <Filter>Source Files\Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\Classes\Bullet.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BulletManager.h">
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Model.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\GameController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\StringUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\OBJ.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\GenUtils.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\InputState.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\InputController.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\Classes\GameController.h">
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Controller.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\PlayerController.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InputController.h">
+      <Filter>Header Files\Controller</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\GameState.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Sprite3DView.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\Classes\GenUtils.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\SegmentedSprite3DView.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\Classes\OBJ.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StringUtils.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Team.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\PlayerView.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SegmentedSprite3DView.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Sprite3DView.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticlePool.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>Header Files\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BulletController.h">
+      <Filter>Header Files\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Turret.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PlaneModel.h">
+      <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Definitions.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

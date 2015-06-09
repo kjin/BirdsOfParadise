@@ -194,9 +194,9 @@ Mesh* GenUtils::CreateGeometryInstancedMesh(int numInstances, int verticesPerIns
 	{
 		for (unsigned j = 0; j < verticesPerInstance; j++)
 		{
-			vertices.push_back(i);
+			vertices.push_back(0);
+            vertices.push_back(i);
             vertices.push_back(j);
-            vertices.push_back(0);
             vertices.push_back(texCoords[i].x);
             vertices.push_back(texCoords[i].y);
 		}

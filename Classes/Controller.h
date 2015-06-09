@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 
-#define CONTROLLER_CREATE_FUNC(x) static x* create(const GameState* gameState, Model* model) { x* var = new x(); if (var != nullptr) { if (var->initWithModel(gameState, model)) { return var; } delete var; } return nullptr; }
+#define CONTROLLER_CREATE_FUNC(x) static x* create(const GameState* gameState, Model* model) { x* var = new x(); if (var != nullptr) { if (var->initWithModel(gameState, model)) { var->autorelease(); return var; } delete var; } return nullptr; }
 
 class Model;
 class GameState;
@@ -21,7 +21,7 @@ protected:
 		return true;
 	}
 public:
-	virtual void update(float deltaTime) = 0;
+	virtual void update(float deltaTime);
 };
 
 #endif

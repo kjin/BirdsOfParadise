@@ -3,20 +3,18 @@
 
 #include "cocos2d.h"
 
+enum Team;
+
 class Model : public cocos2d::Ref
 {
 protected:
 	cocos2d::Vec3 _modelPosition;
 	cocos2d::Vec3 _modelVelocity;
 	float _modelDampeningFactor;
+	float _modelHealth;
+	Team _modelTeam;
 protected:
-	bool init()
-	{
-		_modelPosition = cocos2d::Vec3(0, 0, 0);
-		_modelVelocity = cocos2d::Vec3(0, 0, 0);
-		_modelDampeningFactor = 1;
-		return true;
-	}
+	virtual bool init();
 public:
 	CREATE_FUNC(Model);
 
@@ -33,11 +31,20 @@ public:
 	void addToModelVelocity(cocos2d::Vec3 velocity) { _modelVelocity += velocity; }
 
 	// Gets the model's dampening factor.
-	float getModelDampneingFactor() const { return _modelDampeningFactor; }
+	float getModelDampeningFactor() const { return _modelDampeningFactor; }
 	// Sets the model's dampening factor.
-	void setModelDampeningFactor(float modelDampeningFactor) { _modelDampeningFactor = modelDampeningFactor; }
+	void setModelDampeningFactor(float dampeningFactor) { _modelDampeningFactor = dampeningFactor; }
 
-	void updateModel(float deltaTime)
+	// Gets the model's health.
+	float getModelHealth() const { return _modelHealth; }
+	// Sets the model's health.
+	void setModelHealth(float health) { _modelHealth = health; }
+
+	Team getModelTeam() const { return _modelTeam; }
+	void setModelTeam(Team team) { _modelTeam = team; }
+
+	// Updates the model.
+	virtual void update(float deltaTime)
 	{
 		_modelPosition += _modelVelocity;
 		_modelVelocity *= _modelDampeningFactor;

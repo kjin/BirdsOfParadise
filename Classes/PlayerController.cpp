@@ -4,27 +4,55 @@
 #include "PlayerController.h"
 #include "GameState.h"
 #include "InputState.h"
-#include "Model.h"
+#include "PlaneModel.h"
+#include "Turret.h"
 
 using namespace cocos2d;
 
 void PlayerController::update(float deltaTime)
 {
 	float acceleration = 0.5f;
-	if (_gameState->getInputState()->isKeyDown(EventKeyboard::KeyCode::KEY_LEFT_ARROW))
+	PlaneModel* planeModel = (PlaneModel*)_model;
+	const InputState* inputState = _gameState->getInputState();
+	if (inputState->isKeyDown(EventKeyboard::KeyCode::KEY_LEFT_ARROW))
 	{
-		_model->addToModelVelocity(Vec3(-acceleration, 0, 0));
+		planeModel->addToModelVelocity(Vec3(-acceleration, 0, 0));
 	}
-	if (_gameState->getInputState()->isKeyDown(EventKeyboard::KeyCode::KEY_RIGHT_ARROW))
+	if (inputState->isKeyDown(EventKeyboard::KeyCode::KEY_RIGHT_ARROW))
 	{
-		_model->addToModelVelocity(Vec3(acceleration, 0, 0));
+		planeModel->addToModelVelocity(Vec3(acceleration, 0, 0));
 	}
-	if (_gameState->getInputState()->isKeyDown(EventKeyboard::KeyCode::KEY_DOWN_ARROW))
+	if (inputState->isKeyDown(EventKeyboard::KeyCode::KEY_DOWN_ARROW))
 	{
-		_model->addToModelVelocity(Vec3(0, -acceleration, 0));
+		planeModel->addToModelVelocity(Vec3(0, -acceleration, 0));
 	}
-	if (_gameState->getInputState()->isKeyDown(EventKeyboard::KeyCode::KEY_UP_ARROW))
+	if (inputState->isKeyDown(EventKeyboard::KeyCode::KEY_UP_ARROW))
 	{
-		_model->addToModelVelocity(Vec3(0, acceleration, 0));
+		planeModel->addToModelVelocity(Vec3(0, acceleration, 0));
 	}
+
+	for (size_t i = 0; i < planeModel->getNumTurrets(); i++)
+	{
+		Turret* turret = planeModel->getTurret(i);
+		turret->setBulletQueued(false);
+	}
+	if (inputState->isKeyDown(EventKeyboard::KeyCode::KEY_SPACE))
+	{
+		unsigned ticks = planeModel->getTicks();
+		for (size_t i = 0; i < planeModel->getNumTurrets(); i++)
+		{
+			Turret* turret = planeModel->getTurret(i);
+			if (ticks % turret->getFireFrequency() == 0)
+			{
+				turret->setBulletQueued(true);
+			}
+		}
+		planeModel->incrementTicks();
+
+	}
+	else
+	{
+		planeModel->resetTicks();
+	}
+	Controller::update(deltaTime);
 }

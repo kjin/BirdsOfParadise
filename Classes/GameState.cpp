@@ -1,7 +1,9 @@
 #include "GameState.h"
 #include "InputState.h"
 #include "cocos2d.h"
-#include "Model.h"
+#include "PlaneModel.h"
+#include "BulletManager.h"
+#include "Definitions.h"
 
 using namespace cocos2d;
 
@@ -11,19 +13,23 @@ GameState::GameState()
 
 	_inputState = new InputState();
 
-	_playerModel = Model::create();
+	BulletDefinition playerBulletDefinition;
+	playerBulletDefinition.initialVelocity = 10.0f;
+	playerBulletDefinition.lifespan = 100;
+
+	_playerModel = PlaneModel::create();
 	_playerModel->retain();
 	_playerModel->setModelPosition(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0));
-	_playerModel->setModelDampeningFactor(0.8);
+	_playerModel->setModelDampeningFactor(0.8f);
+	_playerModel->addTurret(Vec3::ZERO, Vec3::UNIT_Y, playerBulletDefinition);
+
+	_bulletManager = BulletManager::create(50);
+	_bulletManager->retain();
 }
 
 GameState::~GameState()
 {
 	delete _inputState;
 	_playerModel->release();
-}
-
-void GameState::update(float deltaTime)
-{
-	_playerModel->updateModel(deltaTime);
+	_bulletManager->release();
 }

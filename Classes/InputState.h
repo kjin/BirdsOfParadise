@@ -16,7 +16,7 @@ private:
 public:
 	bool isKeyDown(cocos2d::EventKeyboard::KeyCode keyCode) const
 	{
-		return _keyStates[(int)keyCode];
+		return _keyStates[(int)keyCode] != 0;
 	}
 };
 

@@ -7,6 +7,9 @@
 #include "InputState.h"
 #include "InputController.h"
 #include "PlayerController.h"
+#include "BulletManager.h"
+#include "Bullet.h"
+#include "BulletController.h"
 
 using namespace std;
 USING_NS_CC;
@@ -45,18 +48,35 @@ bool GameController::init()
 	_label->setString("This is a test.");
 	addChild(_label);
 
-	// Add input to the story
+	// Model
 	_gameState = new GameState();
 	_inputController = InputController::create(_gameState->getInputState(), _eventDispatcher);
 	_inputController->retain();
 
-	// Player view //
-	auto playerView = PlayerView::create(_gameState->getPlayerModel());
+	// View
+	auto playerView = PlayerView::create((Model*)_gameState->getPlayerModel());
 	playerView->setColor(Color3B::RED);
 	playerView->setScale(2);
 	addChild(playerView);
-	// Control our dear player
-	_playerController = PlayerController::create(_gameState, _gameState->getPlayerModel());
+
+	auto glProgram = GLProgram::createWithFilenames("shaders/myShader.vert", "shaders/myShader.frag");
+
+	const BulletManager* bulletManager = _gameState->getBulletManager();
+	for (unsigned i = 0; i < bulletManager->getNumBullets(); i++)
+	{
+		auto bulletView = Sprite3DView::createWithModelAndFile((Model*)bulletManager->getBullet(i), "models/unitSphere.obj");
+		bulletView->setGLProgram(glProgram);
+		bulletView->setScale(10);
+		addChild(bulletView);
+	}
+
+	// Controller
+	auto playerController = PlayerController::create(_gameState, (Model*)_gameState->getPlayerModel());
+	playerController->retain();
+	_modelControllers.push_back(playerController);
+	auto bulletController = BulletController::create(_gameState, (Model*)_gameState->getBulletManager());
+	bulletController->retain();
+	_modelControllers.push_back(bulletController);
 
 	scheduleUpdate();
     
@@ -67,8 +87,10 @@ void GameController::update(float deltaTime)
 {
 	// whoop de doo
 	_label->setString(_gameState->getInputState()->isKeyDown(EventKeyboard::KeyCode::KEY_SPACE) ? "down" : "up");
-	_gameState->update(deltaTime);
-	_playerController->update(deltaTime);
+	for (Controller* controller : _modelControllers)
+	{
+		controller->update(deltaTime);
+	}
 }
 
 void GameController::menuCloseCallback(Ref* pSender)

@@ -5,7 +5,7 @@
 
 class GameState;
 class InputController;
-class PlayerController;
+class Controller;
 
 class GameController : public cocos2d::Layer
 {
@@ -18,7 +18,7 @@ public:
 
 	// Controller
 	InputController* _inputController;
-	PlayerController* _playerController;
+	std::vector<Controller*> _modelControllers;
 
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
