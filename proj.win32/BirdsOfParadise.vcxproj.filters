@@ -143,17 +143,11 @@
     <ClInclude Include="..\Classes\Team.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\PlayerView.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\SegmentedSprite3DView.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Sprite3DView.h">
       <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticlePool.h">
-      <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>Header Files\Internal</Filter>
@@ -175,6 +169,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\CollisionContainerView.h">
       <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PlaneView.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Array2D.h">
+      <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

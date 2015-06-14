@@ -7,11 +7,14 @@
 
 using namespace cocos2d;
 
-GameState::GameState()
+bool GameState::init(unsigned numRows)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 
 	_inputState = new InputState();
+
+	_models = new Array2D<Model*>();
+	_models->addNumRows(numRows);
 
 	BulletDefinition playerBulletDefinition;
 	playerBulletDefinition.initialVelocity = 10.0f;
@@ -26,11 +29,13 @@ GameState::GameState()
 
 	_bulletManager = BulletManager::create(50);
 	_bulletManager->retain();
+	return true;
 }
 
 GameState::~GameState()
 {
 	delete _inputState;
+	delete _models;
 	_playerModel->release();
 	_bulletManager->release();
 }

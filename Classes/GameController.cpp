@@ -2,7 +2,7 @@
 #include <vector>
 #include "OBJ.h"
 #include "GenUtils.h"
-#include "PlayerView.h"
+#include "PlaneView.h"
 #include "CollisionContainer.h"
 #include "CollisionContainerView.h"
 #include "GameState.h"
@@ -56,7 +56,7 @@ bool GameController::init()
 	_inputController->retain();
 
 	// View
-	auto playerView = PlayerView::createWithModel((Model*)_gameState->getPlayerModel());
+	auto playerView = PlaneView::createWithModel((Model*)_gameState->getPlayerModel());
 	playerView->setColor(Color3B::RED);
 	playerView->setScale(2);
 	addChild(playerView);

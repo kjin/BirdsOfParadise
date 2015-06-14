@@ -157,6 +157,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\Array2D.h" />
     <ClInclude Include="..\Classes\Bullet.h" />
     <ClInclude Include="..\Classes\BulletController.h" />
     <ClInclude Include="..\Classes\BulletManager.h" />
@@ -174,14 +175,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\OBJ.h" />
     <ClInclude Include="..\Classes\PlaneModel.h" />
     <ClInclude Include="..\Classes\PlayerController.h" />
-    <ClInclude Include="..\Classes\PlayerView.h" />
+    <ClInclude Include="..\Classes\PlaneView.h" />
     <ClInclude Include="..\Classes\SegmentedSprite3DView.h" />
     <ClInclude Include="..\Classes\Sprite3DView.h" />
     <ClInclude Include="..\Classes\StringUtils.h" />
     <ClInclude Include="..\Classes\Team.h" />
     <ClInclude Include="..\Classes\Turret.h" />
     <ClInclude Include="main.h" />
-    <ClInclude Include="ParticlePool.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\cocos2d\cocos\2d\libcocos2d.vcxproj">
