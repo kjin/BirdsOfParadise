@@ -14,7 +14,7 @@ protected:
 protected:
 	bool initWithModel(const Model* model);
 
-	bool initWithModelAndFile(const Model* model, const std::string& modelPath);
+	virtual bool initWithModelAndFile(const Model* model, const std::string& modelPath);
 
 	bool init() override;
 

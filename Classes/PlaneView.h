@@ -3,10 +3,10 @@
 
 #include "SegmentedSprite3DView.h"
 
-class PlayerView : public SegmentedSprite3DView
+class PlaneView : public SegmentedSprite3DView
 {
 public:
-	static PlayerView* createWithModel(const Model* model);
+	static PlaneView* createWithModel(const Model* model);
 };
 
 #endif

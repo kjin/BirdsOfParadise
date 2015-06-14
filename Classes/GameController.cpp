@@ -63,6 +63,8 @@ bool GameController::init()
 	auto playerCollisionView = CollisionContainerView::createWithModel((Model*)_gameState->getPlayerModel());
 	addChild(playerCollisionView);
 
+	// Camera
+
 	auto glProgram = GLProgram::createWithFilenames("shaders/myShader.vert", "shaders/myShader.frag");
 
 	const BulletManager* bulletManager = _gameState->getBulletManager();

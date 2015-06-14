@@ -1,6 +1,21 @@
 #include "CollisionContainerView.h"
 #include "CollisionContainer.h"
 #include "Model.h"
+#include "cocos2d.h"
+
+using namespace cocos2d;
+
+bool CollisionContainerView::initWithModelAndFile(const Model* model, const std::string& modelPath)
+{
+	if (Sprite3DView::initWithModelAndFile(model, modelPath))
+	{
+		auto glProgram = GLProgram::createWithFilenames("shaders/collisionContainer.vert", "shaders/collisionContainer.frag");
+		this->setGLProgramState(GLProgramState::getOrCreateWithGLProgram(glProgram));
+		this->setColor(Color3B::YELLOW);
+		return true;
+	}
+	return false;
+}
 
 CollisionContainerView* CollisionContainerView::createWithModel(const Model* model)
 {
