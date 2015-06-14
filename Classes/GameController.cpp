@@ -3,6 +3,8 @@
 #include "OBJ.h"
 #include "GenUtils.h"
 #include "PlayerView.h"
+#include "CollisionContainer.h"
+#include "CollisionContainerView.h"
 #include "GameState.h"
 #include "InputState.h"
 #include "InputController.h"
@@ -54,10 +56,12 @@ bool GameController::init()
 	_inputController->retain();
 
 	// View
-	auto playerView = PlayerView::create((Model*)_gameState->getPlayerModel());
+	auto playerView = PlayerView::createWithModel((Model*)_gameState->getPlayerModel());
 	playerView->setColor(Color3B::RED);
 	playerView->setScale(2);
 	addChild(playerView);
+	auto playerCollisionView = CollisionContainerView::createWithModel((Model*)_gameState->getPlayerModel());
+	addChild(playerCollisionView);
 
 	auto glProgram = GLProgram::createWithFilenames("shaders/myShader.vert", "shaders/myShader.frag");
 

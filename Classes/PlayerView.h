@@ -6,7 +6,7 @@
 class PlayerView : public SegmentedSprite3DView
 {
 public:
-	static PlayerView* create(const Model* model);
+	static PlayerView* createWithModel(const Model* model);
 };
 
 #endif

@@ -22,6 +22,7 @@ GameState::GameState()
 	_playerModel->setModelPosition(Vec3(visibleSize.width / 2, visibleSize.height / 2, 0));
 	_playerModel->setModelDampeningFactor(0.8f);
 	_playerModel->addTurret(Vec3::ZERO, Vec3::UNIT_Y, playerBulletDefinition);
+	_playerModel->setCollisionRadius(5.0f);
 
 	_bulletManager = BulletManager::create(50);
 	_bulletManager->retain();

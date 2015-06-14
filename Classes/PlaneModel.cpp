@@ -1,5 +1,6 @@
 #include "PlaneModel.h"
 #include "Turret.h"
+#include "CollisionContainer.h"
 
 using namespace cocos2d;
 
@@ -10,6 +11,13 @@ PlaneModel::~PlaneModel()
 		_turrets[i]->release();
 		_turrets[i] = nullptr;
 	}
+}
+
+void PlaneModel::setCollisionRadius(float radius)
+{
+	SphericalCollisionContainer* cc = SphericalCollisionContainer::create();
+	cc->setRadius(radius);
+	setCollisionContainer(cc);
 }
 
 void PlaneModel::addTurret(const Vec3& position, const Vec3& direction, const BulletDefinition& bulletDefinition)

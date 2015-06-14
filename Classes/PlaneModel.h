@@ -17,6 +17,8 @@ public:
 
 	~PlaneModel();
 
+	void setCollisionRadius(float radius);
+
 	void addTurret(const cocos2d::Vec3& position, const cocos2d::Vec3& direction, const BulletDefinition& bulletDefinition);
 
 	Turret* getTurret(size_t index) const { return _turrets[index]; }

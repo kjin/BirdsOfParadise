@@ -4,10 +4,15 @@
 #include "cocos2d.h"
 
 enum Team;
+class CollisionContainer;
 
+/**
+ * A class that represents a physical model.
+ */
 class Model : public cocos2d::Ref
 {
 protected:
+	CollisionContainer* _collisionContainer;
 	cocos2d::Vec3 _modelPosition;
 	cocos2d::Vec3 _modelVelocity;
 	float _modelDampeningFactor;
@@ -43,12 +48,11 @@ public:
 	Team getModelTeam() const { return _modelTeam; }
 	void setModelTeam(Team team) { _modelTeam = team; }
 
+	const CollisionContainer* getCollisionContainer() const { return _collisionContainer; }
+	void setCollisionContainer(CollisionContainer* collisionContainer);
+
 	// Updates the model.
-	virtual void update(float deltaTime)
-	{
-		_modelPosition += _modelVelocity;
-		_modelVelocity *= _modelDampeningFactor;
-	}
+	virtual void update(float deltaTime);
 };
 
 #endif

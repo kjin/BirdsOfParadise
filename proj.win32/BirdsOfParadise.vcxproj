@@ -140,6 +140,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\BulletController.cpp" />
     <ClCompile Include="..\Classes\BulletManager.cpp" />
+    <ClCompile Include="..\Classes\CollisionContainerView.cpp" />
     <ClCompile Include="..\Classes\Controller.cpp" />
     <ClCompile Include="..\Classes\GameController.cpp" />
     <ClCompile Include="..\Classes\GameState.cpp" />
@@ -159,6 +160,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Bullet.h" />
     <ClInclude Include="..\Classes\BulletController.h" />
     <ClInclude Include="..\Classes\BulletManager.h" />
+    <ClInclude Include="..\Classes\CollisionContainer.h" />
+    <ClInclude Include="..\Classes\CollisionContainerView.h" />
     <ClInclude Include="..\Classes\Controller.h" />
     <ClInclude Include="..\Classes\Definitions.h" />
     <ClInclude Include="..\Classes\GameState.h" />

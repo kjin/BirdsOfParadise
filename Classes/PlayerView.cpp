@@ -4,7 +4,7 @@
 
 using namespace cocos2d;
 
-PlayerView* PlayerView::create(const Model* model)
+PlayerView* PlayerView::createWithModel(const Model* model)
 {
 	auto cube = Sprite3D::create("models/halfUnitCube.obj");
 	OBJ* obj = GenUtils::Cocos2dMeshToOBJ(cube->getMesh());
