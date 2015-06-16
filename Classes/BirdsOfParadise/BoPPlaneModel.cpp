@@ -1,5 +1,5 @@
-#include "PlaneModel.h"
-#include "Turret.h"
+#include "BoPPlaneModel.h"
+#include "BoPTurret.h"
 #include "CollisionContainer.h"
 
 using namespace cocos2d;

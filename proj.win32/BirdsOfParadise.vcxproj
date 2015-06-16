@@ -14,6 +14,7 @@
     <ProjectGuid>{76A39BB2-9B84-4C65-98A5-654D86B86F2A}</ProjectGuid>
     <RootNamespace>test_win32</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -23,7 +24,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -31,7 +32,7 @@
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120_xp</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
-    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v140_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0' and exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A')">v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -138,8 +139,13 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\BulletController.cpp" />
-    <ClCompile Include="..\Classes\BulletManager.cpp" />
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPBulletController.cpp" />
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameController.cpp" />
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameState.cpp" />
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlaneModel.cpp" />
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlaneView.cpp" />
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlayerController.cpp" />
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPBulletManager.cpp" />
     <ClCompile Include="..\Classes\CollisionContainerView.cpp" />
     <ClCompile Include="..\Classes\Controller.cpp" />
     <ClCompile Include="..\Classes\GameController.cpp" />
@@ -147,9 +153,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\GenUtils.cpp" />
     <ClCompile Include="..\Classes\InputController.cpp" />
     <ClCompile Include="..\Classes\OBJ.cpp" />
-    <ClCompile Include="..\Classes\PlaneModel.cpp" />
-    <ClCompile Include="..\Classes\PlayerController.cpp" />
-    <ClCompile Include="..\Classes\PlayerView.cpp" />
     <ClCompile Include="..\Classes\SegmentedSprite3DView.cpp" />
     <ClCompile Include="..\Classes\Sprite3DView.cpp" />
     <ClCompile Include="..\Classes\StringUtils.cpp" />
@@ -158,13 +161,20 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\Array2D.h" />
-    <ClInclude Include="..\Classes\Bullet.h" />
-    <ClInclude Include="..\Classes\BulletController.h" />
-    <ClInclude Include="..\Classes\BulletManager.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BirdsOfParadise.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPBullet.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPBulletController.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPBulletManager.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPDefinitions.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameController.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameState.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPPlaneModel.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPPlaneView.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPPlayerController.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPTurret.h" />
     <ClInclude Include="..\Classes\CollisionContainer.h" />
     <ClInclude Include="..\Classes\CollisionContainerView.h" />
     <ClInclude Include="..\Classes\Controller.h" />
-    <ClInclude Include="..\Classes\Definitions.h" />
     <ClInclude Include="..\Classes\GameState.h" />
     <ClInclude Include="..\Classes\GenUtils.h" />
     <ClInclude Include="..\Classes\InputController.h" />
@@ -173,14 +183,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\GameController.h" />
     <ClInclude Include="..\Classes\OBJ.h" />
-    <ClInclude Include="..\Classes\PlaneModel.h" />
-    <ClInclude Include="..\Classes\PlayerController.h" />
-    <ClInclude Include="..\Classes\PlaneView.h" />
     <ClInclude Include="..\Classes\SegmentedSprite3DView.h" />
     <ClInclude Include="..\Classes\Sprite3DView.h" />
     <ClInclude Include="..\Classes\StringUtils.h" />
     <ClInclude Include="..\Classes\Team.h" />
-    <ClInclude Include="..\Classes\Turret.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

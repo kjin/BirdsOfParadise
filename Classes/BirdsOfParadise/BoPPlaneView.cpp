@@ -1,4 +1,4 @@
-#include "PlaneView.h"
+#include "BirdsOfParadise/BoPPlaneView.h"
 #include "cocos2d.h"
 #include "GenUtils.h"
 

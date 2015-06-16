@@ -1,5 +1,5 @@
-#include "BulletManager.h"
-#include "Bullet.h"
+#include "BoPBulletManager.h"
+#include "BoPBullet.h"
 
 bool BulletManager::init(size_t numBullets)
 {

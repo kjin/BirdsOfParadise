@@ -2,7 +2,7 @@
 #define _TURRET_H_
 
 #include "cocos2d.h"
-#include "Definitions.h"
+#include "BoPDefinitions.h"
 
 // Defines a class that shoots bullets.
 class Turret : public cocos2d::Ref

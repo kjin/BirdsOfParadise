@@ -14,35 +14,24 @@ private:
 	std::vector<std::vector<T> > _arr;
 	size_t _bigSize;
 	std::vector<size_t> _smallSizes;
+	const float RESIZE_FACTOR = 1.5f;
 public:
 	Array2D() : _bigSize(0) {}
 
-	void addRow()
+	void addItem(T item, unsigned bigIndex, unsigned smallIndex)
 	{
-		_arr.push_back(std::vector<T>());
-		_bigSize++;
-	}
-	
-	void addNumRows(size_t numRows)
-	{
-		_bigSize += numRows;
-		for (unsigned i = 0; i < numRows; i++)
+		if (bigIndex >= _bigSize)
 		{
-			_arr.push_back(std::vector<T>());
-			_smallSizes.push_back(0);
+			_bigSize = RESIZE_FACTOR * (bigIndex + 1);
+			_arr.resize(_bigSize);
+			_smallSizes.resize(_bigSize, 0);
 		}
-	}
-
-	void addItem(unsigned vectorID, T item)
-	{
-		if (vectorID < _bigSize)
+		if (smallIndex >= _smallSizes[bigIndex])
 		{
-			_arr[vectorID].push_back(item);
+			_smallSizes[bigIndex] = RESIZE_FACTOR * (smallIndex + 1);
+			_arr[bigIndex].resize(_smallSizes[bigIndex], nullptr);
 		}
-		else
-		{
-			throw std::invalid_argument("VectorID is out of bounds.");
-		}
+		_arr[bigIndex][smallIndex] = item;
 	}
 
 	inline unsigned getNumRows() const
@@ -50,40 +39,40 @@ public:
 		return _bigSize;
 	}
 
-	inline unsigned getNumItems(unsigned vectorID) const
+	inline unsigned getNumItems(unsigned bigIndex) const
 	{
-		if (vectorID < _bigSize)
+		if (bigIndex < _bigSize)
 		{
-			return _smallSizes[vectorID];
+			return _smallSizes[bigIndex];
 		}
 		else
 		{
-			throw std::invalid_argument("VectorID is out of bounds.");
+			throw std::invalid_argument("bigIndex is out of bounds.");
 		}
 	}
 
-	inline T getItem(unsigned vectorID, unsigned itemID) const
+	inline T getItem(unsigned bigIndex, unsigned smallIndex) const
 	{
-		if (vectorID < _bigSize)
+		if (bigIndex < _bigSize)
 		{
-			return _arr[vectorID][itemID];
+			return _arr[bigIndex][smallIndex];
 		}
 		else
 		{
-			throw std::invalid_argument("VectorID is out of bounds.");
+			throw std::invalid_argument("bigIndex is out of bounds.");
 		}
 	}
 
-	void clearItems(unsigned vectorID)
+	void clearItems(unsigned bigIndex)
 	{
-		if (vectorID < _bigSize)
+		if (bigIndex < _bigSize)
 		{
-			_arr[vectorID].clear();
-			_smallSizes[vectorID] = 0;
+			_arr[bigIndex].clear();
+			_smallSizes[bigIndex] = 0;
 		}
 		else
 		{
-			throw std::invalid_argument("VectorID is out of bounds.");
+			throw std::invalid_argument("bigIndex is out of bounds.");
 		}
 	}
 };

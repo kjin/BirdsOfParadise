@@ -10,24 +10,24 @@ class Model;
 class PlaneModel;
 class BulletManager;
 
-#define GAMESTATE_MODEL(_modelType, _modelName, _getterName) private: _modelType* _modelName; public: _modelType* _getterName() { return _modelName; } _modelType* _getterName() const { return _modelName; }
-
 class GameState : public cocos2d::Ref
 {
 	friend class GameController;
-protected:
+private:
 	InputState* _inputState;
 	Array2D<Model*>* _models;
 protected:
-	bool init(unsigned numRows);
+	virtual bool init();
+
+	void addModel(Model* model, unsigned vectorID, unsigned itemID);
 
 	~GameState();
 public:
 	InputState* getInputState() { return _inputState; }
 	const InputState* getInputState() const { return _inputState; }
 
-	GAMESTATE_MODEL(PlaneModel, _playerModel, getPlayerModel);
-	GAMESTATE_MODEL(BulletManager, _bulletManager, getBulletManager);
+	Model* getModel(unsigned vectorID, unsigned itemID) { return _models->getItem(vectorID, itemID); }
+	const Model* getModel(unsigned vectorID, unsigned itemID) const { return _models->getItem(vectorID, itemID); }
 };
 
 #endif

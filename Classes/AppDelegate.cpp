@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "GameController.h"
+#include "BirdsOfParadise/BoPGameController.h"
 
 USING_NS_CC;
 
@@ -46,8 +46,14 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     register_all_packages();
 
-    // create a scene. it's an autorelease object
-    auto scene = GameController::createScene();
+	// 'scene' is an autorelease object
+	auto scene = Scene::create();
+
+	// 'layer' is an autorelease object
+	auto layer = BoPGameController::create();
+
+	// add layer as a child to scene
+	scene->addChild(layer);
 
     // run
     director->runWithScene(scene);
