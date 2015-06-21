@@ -142,6 +142,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPBulletController.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameController.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameState.cpp" />
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameView.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlaneModel.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlaneView.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlayerController.cpp" />
@@ -150,13 +151,16 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\Controller.cpp" />
     <ClCompile Include="..\Classes\GameController.cpp" />
     <ClCompile Include="..\Classes\GameState.cpp" />
+    <ClCompile Include="..\Classes\GameView.cpp" />
     <ClCompile Include="..\Classes\GenUtils.cpp" />
+    <ClCompile Include="..\Classes\GLProgramManager.cpp" />
     <ClCompile Include="..\Classes\InputController.cpp" />
     <ClCompile Include="..\Classes\OBJ.cpp" />
     <ClCompile Include="..\Classes\SegmentedSprite3DView.cpp" />
     <ClCompile Include="..\Classes\Sprite3DView.cpp" />
     <ClCompile Include="..\Classes\StringUtils.cpp" />
     <ClCompile Include="..\Classes\Model.cpp" />
+    <ClCompile Include="..\Classes\View.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -168,15 +172,19 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPDefinitions.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameController.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameState.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameView.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPPlaneModel.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPPlaneView.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPPlayerController.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPTurret.h" />
+    <ClInclude Include="..\Classes\CameraModel.h" />
     <ClInclude Include="..\Classes\CollisionContainer.h" />
     <ClInclude Include="..\Classes\CollisionContainerView.h" />
     <ClInclude Include="..\Classes\Controller.h" />
     <ClInclude Include="..\Classes\GameState.h" />
+    <ClInclude Include="..\Classes\GameView.h" />
     <ClInclude Include="..\Classes\GenUtils.h" />
+    <ClInclude Include="..\Classes\GLProgramManager.h" />
     <ClInclude Include="..\Classes\InputController.h" />
     <ClInclude Include="..\Classes\InputState.h" />
     <ClInclude Include="..\Classes\Model.h" />
@@ -187,6 +195,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\Sprite3DView.h" />
     <ClInclude Include="..\Classes\StringUtils.h" />
     <ClInclude Include="..\Classes\Team.h" />
+    <ClInclude Include="..\Classes\View.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

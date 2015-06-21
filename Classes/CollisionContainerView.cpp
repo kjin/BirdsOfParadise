@@ -10,8 +10,8 @@ bool CollisionContainerView::initWithModelAndFile(const Model* model, const std:
 	if (Sprite3DView::initWithModelAndFile(model, modelPath))
 	{
 		auto glProgram = GLProgram::createWithFilenames("shaders/collisionContainer.vert", "shaders/collisionContainer.frag");
-		this->setGLProgramState(GLProgramState::getOrCreateWithGLProgram(glProgram));
-		this->setColor(Color3B::YELLOW);
+		this->getNode()->setGLProgramState(GLProgramState::getOrCreateWithGLProgram(glProgram));
+		this->getNode()->setColor(Color3B::YELLOW);
 		return true;
 	}
 	return false;
@@ -33,12 +33,12 @@ void CollisionContainerView::update(float deltaTime)
 {
 	if (_model->getModelHealth() > 0 && _model->getCollisionContainer() != nullptr)
 	{
-		setVisible(true);
-		setPosition3D(_model->getCollisionContainer()->getPosition());
-		setScale(((SphericalCollisionContainer*)_model->getCollisionContainer())->getRadius());
+		_sceneGraphNode->setVisible(true);
+		_sceneGraphNode->setPosition3D(_model->getCollisionContainer()->getPosition());
+		_sceneGraphNode->setScale(((SphericalCollisionContainer*)_model->getCollisionContainer())->getRadius());
 	}
 	else
 	{
-		setVisible(false);
+		_sceneGraphNode->setVisible(false);
 	}
 }

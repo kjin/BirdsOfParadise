@@ -5,14 +5,13 @@
 #include "Array2D.h"
 
 class InputState;
-class GameController;
 class Model;
-class PlaneModel;
 class BulletManager;
+
+#define CREATE_GAME_STATE_FUNC(x) CREATE_FUNC(x)
 
 class GameState : public cocos2d::Ref
 {
-	friend class GameController;
 private:
 	InputState* _inputState;
 	Array2D<Model*>* _models;

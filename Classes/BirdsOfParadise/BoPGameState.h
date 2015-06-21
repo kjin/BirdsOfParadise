@@ -10,7 +10,7 @@ protected:
 
 	BoPGameState() {}
 public:
-	CREATE_FUNC(BoPGameState);
+	CREATE_GAME_STATE_FUNC(BoPGameState);
 };
 
 #endif

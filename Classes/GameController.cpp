@@ -1,7 +1,7 @@
 #include "GameController.h"
 #include <vector>
 #include "GameState.h"
-#include "InputState.h"
+#include "GameView.h"
 #include "InputController.h"
 #include "Controller.h"
 
@@ -17,6 +17,7 @@ bool GameController::init()
     }
 	scheduleUpdate();
 	_gameState = nullptr;
+	_gameView = nullptr;
 	_inputController = nullptr;
     return true;
 }
@@ -32,6 +33,35 @@ void GameController::update(float deltaTime)
 	{
 		controller->update(deltaTime);
 	}
+}
+
+void GameController::setGameState(GameState* gameState)
+{
+	if (_gameState != nullptr)
+	{
+		_gameState->release();
+		_gameState = nullptr;
+	}
+	gameState->retain();
+	_gameState = gameState;
+}
+
+void GameController::setGameView(GameView* gameView)
+{
+	if (_gameView != nullptr)
+	{
+		_gameView->release();
+		removeChild(_gameView);
+		_gameView = nullptr;
+	}
+	addChild(gameView);
+	_gameView = gameView;
+}
+
+void GameController::addController(Controller* gameController)
+{
+	gameController->retain();
+	_modelControllers.push_back(gameController);
 }
 
 void GameController::menuCloseCallback(Ref* pSender)

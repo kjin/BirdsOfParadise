@@ -3,6 +3,7 @@
 #include "StringUtils.h"
 #include "OBJ.h"
 #include "GenUtils.h"
+#include "GLProgramManager.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -101,8 +102,8 @@ bool SegmentedSprite3DView::init(const Model* model, const char* inputFile, cons
 			triangulation.push_back(objTriangles[i].v3);
 		}
 
-		auto glProgram = GLProgram::createWithFilenames("shaders/morph.vert", "shaders/morph.frag");
-		auto glProgramState = GLProgramState::getOrCreateWithGLProgram(glProgram);
+		auto glProgram = GLProgramManager::getInstance()->getProgram("morph");
+		auto glProgramState = GLProgramState::create(glProgram);
 		glProgramState->setUniformTexture("u_texture", texture);
 		glProgramState->setUniformVec3v("u_positions", numPoints, positions);
 		glProgramState->setUniformVec3v("u_instanceVertexPositions", objVertices.size(), instanceVertices);
@@ -112,10 +113,13 @@ bool SegmentedSprite3DView::init(const Model* model, const char* inputFile, cons
 		// Assign to self
 		_positions = positions;
 		_instanceVertices = instanceVertices;
-		setTexture(texture);
-		addMesh(mesh);
-		setGLProgramState(glProgramState);
-		_contentSize = getBoundingBox().size;
+
+		auto sprite3DNode = (Sprite3D*)_sceneGraphNode;
+
+		sprite3DNode->setTexture(texture);
+		sprite3DNode->addMesh(mesh);
+		sprite3DNode->setGLProgramState(glProgramState);
+		sprite3DNode->setContentSize(sprite3DNode->getBoundingBox().size);
 		return true;
 	}
 	return false;

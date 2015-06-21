@@ -135,6 +135,18 @@
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPBulletManager.cpp">
       <Filter>Source Files\BirdsOfParadise\Model</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\GLProgramManager.cpp">
+      <Filter>Source Files\Core\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\View.cpp">
+      <Filter>Source Files\Core\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameView.cpp">
+      <Filter>Source Files\Core\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameView.cpp">
+      <Filter>Source Files\BirdsOfParadise\View</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -220,6 +232,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPBullet.h">
       <Filter>Header Files\BirdsOfParadise\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GLProgramManager.h">
+      <Filter>Header Files\Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CameraModel.h">
+      <Filter>Header Files\Core\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\View.h">
+      <Filter>Header Files\Core\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameView.h">
+      <Filter>Header Files\Core\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameView.h">
+      <Filter>Header Files\BirdsOfParadise\View</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
