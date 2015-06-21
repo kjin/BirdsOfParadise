@@ -6,6 +6,7 @@
 #include "BoPPlayerController.h"
 #include "BoPBulletManager.h"
 #include "BoPBulletController.h"
+#include "BoPCameraController.h"
 #include "BoPPlaneModel.h"
 
 using namespace cocos2d;
@@ -30,10 +31,8 @@ bool BoPGameController::init()
 	setGameView(gameView);
 
 	// Controller
-	auto playerModel = (PlaneModel*)gameState->getModel(VID_SINGLETON, IID_PLAYER);
-	auto bulletManager = (BulletManager*)gameState->getModel(VID_SINGLETON, IID_BULLET_MANAGER);
-
-	addController(PlayerController::create(gameState, (Model*)playerModel));
-	addController(BulletController::create(gameState, (Model*)bulletManager));
+	addController(PlayerController::create(gameState, gameState->getModel(VID_SINGLETON, IID_PLAYER)));
+	addController(BulletController::create(gameState, gameState->getModel(VID_SINGLETON, IID_BULLET_MANAGER)));
+	addController(CameraController::create(gameState, gameState->getModel(VID_SINGLETON, IID_CAMERA)));
 	return true;
 }

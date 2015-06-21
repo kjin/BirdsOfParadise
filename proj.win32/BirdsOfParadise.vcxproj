@@ -140,6 +140,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPBulletController.cpp" />
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPCameraController.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameController.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameState.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameView.cpp" />
@@ -147,6 +148,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlaneView.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlayerController.cpp" />
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPBulletManager.cpp" />
+    <ClCompile Include="..\Classes\CameraView.cpp" />
     <ClCompile Include="..\Classes\CollisionContainerView.cpp" />
     <ClCompile Include="..\Classes\Controller.cpp" />
     <ClCompile Include="..\Classes\GameController.cpp" />
@@ -169,6 +171,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPBullet.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPBulletController.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPBulletManager.h" />
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPCameraController.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPDefinitions.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameController.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameState.h" />
@@ -178,6 +181,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPPlayerController.h" />
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPTurret.h" />
     <ClInclude Include="..\Classes\CameraModel.h" />
+    <ClInclude Include="..\Classes\CameraView.h" />
     <ClInclude Include="..\Classes\CollisionContainer.h" />
     <ClInclude Include="..\Classes\CollisionContainerView.h" />
     <ClInclude Include="..\Classes\Controller.h" />

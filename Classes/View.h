@@ -6,6 +6,8 @@
 
 #include "cocos2d.h"
 
+#define VIEW_CREATE_FUNC(x) static x* create(const Model* model, cocos2d::Node* node) { x* pRet = new x(); if (pRet != nullptr && pRet->init(model, node)) { pRet->autorelease(); return pRet; } delete pRet; return nullptr; }
+
 class Model;
 
 class View : public cocos2d::Ref
@@ -16,14 +18,9 @@ protected:
 
 	~View();
 public:
-	bool init(const Model* model, cocos2d::Node* node);
+	virtual bool init(const Model* model, cocos2d::Node* node);
 
-	static View* create(const Model* model, cocos2d::Node* node);
-
-	static View* create()
-	{
-		return create(nullptr, nullptr);
-	}
+	VIEW_CREATE_FUNC(View);
 
 	cocos2d::Node* getNode() { return _sceneGraphNode; }
 

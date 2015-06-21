@@ -8,7 +8,7 @@ class InputState;
 class Model;
 class BulletManager;
 
-#define CREATE_GAME_STATE_FUNC(x) CREATE_FUNC(x)
+#define GAME_STATE_CREATE_FUNC(x) CREATE_FUNC(x)
 
 class GameState : public cocos2d::Ref
 {

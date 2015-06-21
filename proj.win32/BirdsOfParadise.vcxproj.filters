@@ -147,6 +147,12 @@
     <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameView.cpp">
       <Filter>Source Files\BirdsOfParadise\View</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\CameraView.cpp">
+      <Filter>Source Files\Core\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BirdsOfParadise\BoPCameraController.cpp">
+      <Filter>Source Files\BirdsOfParadise\Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -247,6 +253,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameView.h">
       <Filter>Header Files\BirdsOfParadise\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CameraView.h">
+      <Filter>Header Files\Core\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BirdsOfParadise\BoPCameraController.h">
+      <Filter>Header Files\BirdsOfParadise\Controller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

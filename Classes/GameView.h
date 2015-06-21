@@ -7,7 +7,7 @@
 class GameState;
 class View;
 
-#define CREATE_GAME_VIEW_FUNC(x) static x* x::create(const GameState* gameState) { x* pRet = new x(); if (pRet != nullptr && pRet->init(gameState)) { pRet->autorelease(); return pRet; } delete pRet; return nullptr; }
+#define GAME_VIEW_CREATE_FUNC(x) static x* x::create(const GameState* gameState) { x* pRet = new x(); if (pRet != nullptr && pRet->init(gameState)) { pRet->autorelease(); return pRet; } delete pRet; return nullptr; }
 
 class GameView : public cocos2d::Node
 {

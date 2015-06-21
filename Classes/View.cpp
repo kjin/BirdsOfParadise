@@ -9,18 +9,6 @@ bool View::init(const Model* model, cocos2d::Node* node)
 	return true;
 }
 
-View* View::create(const Model* model, cocos2d::Node* node)
-{
-	View* pRet = new View();
-	if (pRet != nullptr && pRet->init(model, node))
-	{
-		pRet->autorelease();
-		return pRet;
-	}
-	delete pRet;
-	return nullptr;
-}
-
 View::~View()
 {
 	_sceneGraphNode->release();

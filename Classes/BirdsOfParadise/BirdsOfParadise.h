@@ -4,5 +4,6 @@
 #define VID_SINGLETON 0
 #define IID_PLAYER 0
 #define IID_BULLET_MANAGER 1
+#define IID_CAMERA 2
 
 #endif

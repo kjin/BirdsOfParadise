@@ -1,14 +1,15 @@
+#include "BirdsOfParadise.h"
 #include "OBJ.h"
 #include "GenUtils.h"
 #include "GLProgramManager.h"
 #include "GameState.h"
-#include "BirdsOfParadise.h"
 #include "BoPGameView.h"
 #include "Model.h"
 #include "BoPPlaneModel.h"
 #include "BoPBulletManager.h"
 #include "BoPPlaneView.h"
 #include "CollisionContainerView.h"
+#include "CameraView.h"
 #include "GenUtils.h"
 
 using namespace cocos2d;
@@ -29,12 +30,7 @@ bool BoPGameView::init(const GameState* gameState)
 	auto playerCollisionView = CollisionContainerView::createWithModel((Model*)playerModel);
 	addView(playerCollisionView);
 
-	/*auto camera = Camera::createPerspective(45, 1.0f, 0.1f, 1000.0f);
-	camera->setPosition3D(playerModel->getModelPosition() + Vec3(-100, -100, 100));
-	camera->lookAt(playerModel->getModelPosition());
-	addChild(camera);
-	camera->setCameraFlag(CameraFlag::USER1);
-	setCameraMask(2);*/
+	addView(CameraView::create((CameraModel*)gameState->getModel(VID_SINGLETON, IID_CAMERA)));
 
 	auto cube = Sprite3D::create("models/halfUnitCube.obj");
 	OBJ* obj = GenUtils::Cocos2dMeshToOBJ(cube->getMesh());
@@ -50,5 +46,7 @@ bool BoPGameView::init(const GameState* gameState)
 		bulletView->getNode()->setScale(2);
 		addView(bulletView);
 	}
+	this->setCameraMask(2);
+
 	return true;
 }

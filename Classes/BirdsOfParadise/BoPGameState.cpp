@@ -3,6 +3,7 @@
 #include "BoPPlaneModel.h"
 #include "BoPBulletManager.h"
 #include "BoPDefinitions.h"
+#include "CameraModel.h"
 #include "Model.h"
 
 using namespace cocos2d;
@@ -28,5 +29,9 @@ bool BoPGameState::init()
 
 	auto bulletManager = BulletManager::create(50);
 	addModel(bulletManager, VID_SINGLETON, IID_BULLET_MANAGER);
+
+	auto cameraModel = CameraModel::create();
+	addModel(cameraModel, VID_SINGLETON, IID_CAMERA);
+
 	return true;
 }

@@ -10,7 +10,7 @@ protected:
 
 	BoPGameView() {}
 public:
-	CREATE_GAME_VIEW_FUNC(BoPGameView);
+	GAME_VIEW_CREATE_FUNC(BoPGameView);
 };
 
 #endif
