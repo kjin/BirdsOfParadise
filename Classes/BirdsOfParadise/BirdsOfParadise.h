@@ -5,5 +5,6 @@
 #define IID_PLAYER 0
 #define IID_BULLET_MANAGER 1
 #define IID_CAMERA 2
+#define IID_BACKGROUND 3
 
 #endif

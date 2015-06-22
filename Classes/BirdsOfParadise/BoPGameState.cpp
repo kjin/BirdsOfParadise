@@ -30,6 +30,10 @@ bool BoPGameState::init()
 	auto bulletManager = BulletManager::create(50);
 	addModel(bulletManager, VID_SINGLETON, IID_BULLET_MANAGER);
 
+	auto backdrop = Model::create();
+	backdrop->setModelPosition(Vec3(visibleSize.width / 2, visibleSize.height / 2, -300));
+	addModel(backdrop, VID_SINGLETON, IID_BACKGROUND);
+
 	auto cameraModel = CameraModel::create();
 	addModel(cameraModel, VID_SINGLETON, IID_CAMERA);
 

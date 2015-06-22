@@ -26,8 +26,8 @@ public:
 	CREATE_FUNC(Bullet);
 
 	unsigned getLifespan() const { return _lifespan; }
-	void setLifespan(unsigned lifespan) { _lifespan = lifespan; }
-	void decrementLifespan() { _lifespan--; }
+	void setLifespan(unsigned lifespan) { _lifespan = lifespan; updateHealth(); }
+	void decrementLifespan() { _lifespan--; updateHealth(); }
 };
 
 #endif

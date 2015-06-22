@@ -21,7 +21,7 @@ void View::update(float deltaTime)
 		_sceneGraphNode->setVisible(true);
 		_sceneGraphNode->setPosition3D(_model->getModelPosition());
 	}
-	else
+	else if (_sceneGraphNode->isVisible())
 	{
 		_sceneGraphNode->setVisible(false);
 	}

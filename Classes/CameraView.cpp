@@ -18,7 +18,7 @@ CameraView* CameraView::create(const CameraModel* cameraModel)
 bool CameraView::init(const Model* model, Node* node)
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	_nodeAsCamera = cocos2d::Camera::createPerspective(45, visibleSize.width / visibleSize.height, 0.1f, 1000);
+	_nodeAsCamera = cocos2d::Camera::createPerspective(45, visibleSize.width / visibleSize.height, 0.1f, 10000);
 	_nodeAsCamera->setCameraFlag(CameraFlag::USER1);
 	if (!View::init(model, _nodeAsCamera))
 	{

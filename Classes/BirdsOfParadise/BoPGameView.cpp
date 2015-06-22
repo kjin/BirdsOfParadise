@@ -20,18 +20,18 @@ bool BoPGameView::init(const GameState* gameState)
 	{
 		return false;
 	}
-	auto playerModel = (PlaneModel*)gameState->getModel(VID_SINGLETON, IID_PLAYER);
-	auto bulletManager = (BulletManager*)gameState->getModel(VID_SINGLETON, IID_BULLET_MANAGER);
 
+	auto playerModel = (PlaneModel*)gameState->getModel(VID_SINGLETON, IID_PLAYER);
 	auto playerView = PlaneView::createWithModel((Model*)playerModel);
 	playerView->getNode()->setColor(Color3B::BLUE);
 	playerView->getNode()->setScale(2);
 	addView(playerView);
-	auto playerCollisionView = CollisionContainerView::createWithModel((Model*)playerModel);
-	addView(playerCollisionView);
+	//auto playerCollisionView = CollisionContainerView::createWithModel((Model*)playerModel);
+	//addView(playerCollisionView);
 
 	addView(CameraView::create((CameraModel*)gameState->getModel(VID_SINGLETON, IID_CAMERA)));
 
+	auto bulletManager = (BulletManager*)gameState->getModel(VID_SINGLETON, IID_BULLET_MANAGER);
 	auto cube = Sprite3D::create("models/halfUnitCube.obj");
 	OBJ* obj = GenUtils::Cocos2dMeshToOBJ(cube->getMesh());
 	auto glProgram = GLProgramManager::getInstance()->getProgram("colorByNormals");
@@ -46,6 +46,12 @@ bool BoPGameView::init(const GameState* gameState)
 		bulletView->getNode()->setScale(2);
 		addView(bulletView);
 	}
+
+	/*auto backdropView = Sprite3DView::createWithModelAndFile(gameState->getModel(VID_SINGLETON, IID_BACKGROUND), "models/landscape.obj");
+	backdropView->getNode()->setGLProgram(glProgram);
+	backdropView->getNode()->setScale(1000);
+	addView(backdropView);*/
+
 	this->setCameraMask(2);
 
 	return true;

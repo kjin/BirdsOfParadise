@@ -11,7 +11,7 @@ using namespace cocos2d;
 
 void PlayerController::update(float deltaTime)
 {
-	float acceleration = 0.5f;
+	float acceleration = 0.8f;
 	PlaneModel* planeModel = (PlaneModel*)_model;
 	const InputState* inputState = _gameState->getInputState();
 	if (inputState->isKeyDown(EventKeyboard::KeyCode::KEY_LEFT_ARROW))
@@ -36,7 +36,7 @@ void PlayerController::update(float deltaTime)
 		Turret* turret = planeModel->getTurret(i);
 		turret->setBulletQueued(false);
 	}
-	if (inputState->isKeyDown(EventKeyboard::KeyCode::KEY_SPACE))
+	if (inputState->isKeyDown(EventKeyboard::KeyCode::KEY_Z))
 	{
 		unsigned ticks = planeModel->getTicks();
 		for (size_t i = 0; i < planeModel->getNumTurrets(); i++)
