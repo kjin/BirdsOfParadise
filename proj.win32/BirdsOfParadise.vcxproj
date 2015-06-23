@@ -99,7 +99,10 @@
     <PreLinkEvent>
       <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
 xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"
-xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
+xcopy /D /E /I /F /Y "$(ProjectDir)..\Resources" "$(OutDir)"
+if not exist "$(OutDir)shaders" mkdir "$(OutDir)shaders"
+xcopy /D /E /I /F /Y "$(ProjectDir)..\CorvusCore\shaders" "$(OutDir)shaders"
+</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -134,7 +137,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
     <PreLinkEvent>
       <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
 xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"
-xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y</Command>
+xcopy /D /E /I /F /Y "$(ProjectDir)..\Resources" "$(OutDir)"
+if not exist "$(OutDir)shaders" mkdir "$(OutDir)shaders"
+xcopy /D /E /I /F /Y "$(ProjectDir)..\CorvusCore\shaders" "$(OutDir)shaders"
+</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
