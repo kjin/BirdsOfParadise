@@ -4,3 +4,6 @@
 [submodule "CorvusCore"]
 	path = CorvusCore
 	url = https://github.com/kjin/CorvusCore
+[submodule "Resources"]
+	path = Resources
+	url = https://github.com/kjin/BoP-Resources
