@@ -1,5 +1,5 @@
-#include "AppDelegate.h"
-#include "BirdsOfParadise/BoPGameController.h"
+#include "BoPAppDelegate.h"
+#include "BoPGameController.h"
 
 USING_NS_CC;
 

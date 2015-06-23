@@ -31,9 +31,6 @@
     <Filter Include="Header Files\Core\Controller">
       <UniqueIdentifier>{3de86158-cdef-40bc-8ffe-ccee913327a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Core\Internal">
-      <UniqueIdentifier>{86bd8e7c-5a55-48b0-8618-b54032f4ec82}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\BirdsOfParadise\Controller">
       <UniqueIdentifier>{ee705bf7-ed7f-44b0-9846-49d417325e18}</UniqueIdentifier>
     </Filter>
@@ -67,9 +64,6 @@
     <Filter Include="Source Files\Core\Model">
       <UniqueIdentifier>{41bc07e6-54d0-47de-b6a2-99e687781541}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Core\Internal">
-      <UniqueIdentifier>{494e7561-6091-425d-8095-265a5878b340}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Core\Controller">
       <UniqueIdentifier>{2ca053ac-4078-4d2f-b66a-5d60e7da199a}</UniqueIdentifier>
     </Filter>
@@ -78,187 +72,187 @@
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Controller.cpp">
+    <ClCompile Include="..\CorvusCore\Controller.cpp">
       <Filter>Source Files\Core\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameController.cpp">
+    <ClCompile Include="..\CorvusCore\GameController.cpp">
       <Filter>Source Files\Core\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\InputController.cpp">
+    <ClCompile Include="..\CorvusCore\InputController.cpp">
       <Filter>Source Files\Core\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameState.cpp">
+    <ClCompile Include="..\CorvusCore\GameState.cpp">
       <Filter>Source Files\Core\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Model.cpp">
+    <ClCompile Include="..\CorvusCore\Model.cpp">
       <Filter>Source Files\Core\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Sprite3DView.cpp">
+    <ClCompile Include="..\CorvusCore\Sprite3DView.cpp">
       <Filter>Source Files\Core\View</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\SegmentedSprite3DView.cpp">
+    <ClCompile Include="..\CorvusCore\SegmentedSprite3DView.cpp">
       <Filter>Source Files\Core\View</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\StringUtils.cpp">
+    <ClCompile Include="..\CorvusCore\StringUtils.cpp">
       <Filter>Source Files\Core\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GenUtils.cpp">
+    <ClCompile Include="..\CorvusCore\GenUtils.cpp">
       <Filter>Source Files\Core\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\OBJ.cpp">
+    <ClCompile Include="..\CorvusCore\OBJ.cpp">
       <Filter>Source Files\Core\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>Source Files\Core\Internal</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\CollisionContainerView.cpp">
+    <ClCompile Include="..\CorvusCore\CollisionContainerView.cpp">
       <Filter>Source Files\Core\View</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameState.cpp">
+    <ClCompile Include="..\Classes\BoPGameState.cpp">
       <Filter>Source Files\BirdsOfParadise\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameController.cpp">
+    <ClCompile Include="..\Classes\BoPGameController.cpp">
       <Filter>Source Files\BirdsOfParadise\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BirdsOfParadise\BoPBulletController.cpp">
+    <ClCompile Include="..\Classes\BoPBulletController.cpp">
       <Filter>Source Files\BirdsOfParadise\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlayerController.cpp">
+    <ClCompile Include="..\Classes\BoPPlayerController.cpp">
       <Filter>Source Files\BirdsOfParadise\Controller</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlaneModel.cpp">
+    <ClCompile Include="..\Classes\BoPPlaneModel.cpp">
       <Filter>Source Files\BirdsOfParadise\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BirdsOfParadise\BoPPlaneView.cpp">
+    <ClCompile Include="..\Classes\BoPPlaneView.cpp">
       <Filter>Source Files\BirdsOfParadise\View</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BirdsOfParadise\BoPBulletManager.cpp">
+    <ClCompile Include="..\Classes\BoPBulletManager.cpp">
       <Filter>Source Files\BirdsOfParadise\Model</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GLProgramManager.cpp">
+    <ClCompile Include="..\CorvusCore\GLProgramManager.cpp">
       <Filter>Source Files\Core\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\View.cpp">
+    <ClCompile Include="..\CorvusCore\View.cpp">
       <Filter>Source Files\Core\View</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\GameView.cpp">
+    <ClCompile Include="..\CorvusCore\GameView.cpp">
       <Filter>Source Files\Core\View</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BirdsOfParadise\BoPGameView.cpp">
+    <ClCompile Include="..\Classes\BoPGameView.cpp">
       <Filter>Source Files\BirdsOfParadise\View</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\CameraView.cpp">
+    <ClCompile Include="..\CorvusCore\CameraView.cpp">
       <Filter>Source Files\Core\View</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\BirdsOfParadise\BoPCameraController.cpp">
+    <ClCompile Include="..\Classes\BoPCameraController.cpp">
       <Filter>Source Files\BirdsOfParadise\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BoPAppDelegate.cpp">
+      <Filter>Source Files\BirdsOfParadise</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Model.h">
+    <ClInclude Include="..\CorvusCore\Model.h">
       <Filter>Header Files\Core\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\InputState.h">
+    <ClInclude Include="..\CorvusCore\InputState.h">
       <Filter>Header Files\Core\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameController.h">
+    <ClInclude Include="..\CorvusCore\GameController.h">
       <Filter>Header Files\Core\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Controller.h">
+    <ClInclude Include="..\CorvusCore\Controller.h">
       <Filter>Header Files\Core\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\InputController.h">
+    <ClInclude Include="..\CorvusCore\InputController.h">
       <Filter>Header Files\Core\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameState.h">
+    <ClInclude Include="..\CorvusCore\GameState.h">
       <Filter>Header Files\Core\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GenUtils.h">
+    <ClInclude Include="..\CorvusCore\GenUtils.h">
       <Filter>Header Files\Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\OBJ.h">
+    <ClInclude Include="..\CorvusCore\OBJ.h">
       <Filter>Header Files\Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\StringUtils.h">
+    <ClInclude Include="..\CorvusCore\StringUtils.h">
       <Filter>Header Files\Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Team.h">
+    <ClInclude Include="..\CorvusCore\Team.h">
       <Filter>Header Files\Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\SegmentedSprite3DView.h">
+    <ClInclude Include="..\CorvusCore\SegmentedSprite3DView.h">
       <Filter>Header Files\Core\View</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Sprite3DView.h">
+    <ClInclude Include="..\CorvusCore\Sprite3DView.h">
       <Filter>Header Files\Core\View</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>Header Files\Core\Internal</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\CollisionContainer.h">
+    <ClInclude Include="..\CorvusCore\CollisionContainer.h">
       <Filter>Header Files\Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CollisionContainerView.h">
+    <ClInclude Include="..\CorvusCore\CollisionContainerView.h">
       <Filter>Header Files\Core\View</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Array2D.h">
+    <ClInclude Include="..\CorvusCore\Array2D.h">
       <Filter>Header Files\Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameState.h">
+    <ClInclude Include="..\Classes\BoPGameState.h">
       <Filter>Header Files\BirdsOfParadise\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameController.h">
+    <ClInclude Include="..\Classes\BoPGameController.h">
       <Filter>Header Files\BirdsOfParadise\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BirdsOfParadise.h">
+    <ClInclude Include="..\Classes\BirdsOfParadise.h">
       <Filter>Header Files\BirdsOfParadise</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPDefinitions.h">
+    <ClInclude Include="..\Classes\BoPDefinitions.h">
       <Filter>Header Files\BirdsOfParadise</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPBulletController.h">
+    <ClInclude Include="..\Classes\BoPBulletController.h">
       <Filter>Header Files\BirdsOfParadise\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPPlayerController.h">
+    <ClInclude Include="..\Classes\BoPPlayerController.h">
       <Filter>Header Files\BirdsOfParadise\Controller</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPBulletManager.h">
+    <ClInclude Include="..\Classes\BoPBulletManager.h">
       <Filter>Header Files\BirdsOfParadise\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPPlaneModel.h">
+    <ClInclude Include="..\Classes\BoPPlaneModel.h">
       <Filter>Header Files\BirdsOfParadise\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPTurret.h">
+    <ClInclude Include="..\Classes\BoPTurret.h">
       <Filter>Header Files\BirdsOfParadise\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPPlaneView.h">
+    <ClInclude Include="..\Classes\BoPPlaneView.h">
       <Filter>Header Files\BirdsOfParadise\View</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPBullet.h">
+    <ClInclude Include="..\Classes\BoPBullet.h">
       <Filter>Header Files\BirdsOfParadise\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GLProgramManager.h">
+    <ClInclude Include="..\CorvusCore\GLProgramManager.h">
       <Filter>Header Files\Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CameraModel.h">
+    <ClInclude Include="..\CorvusCore\CameraModel.h">
       <Filter>Header Files\Core\Model</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\View.h">
+    <ClInclude Include="..\CorvusCore\View.h">
       <Filter>Header Files\Core\View</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\GameView.h">
+    <ClInclude Include="..\CorvusCore\GameView.h">
       <Filter>Header Files\Core\View</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPGameView.h">
+    <ClInclude Include="..\Classes\BoPGameView.h">
       <Filter>Header Files\BirdsOfParadise\View</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CameraView.h">
+    <ClInclude Include="..\CorvusCore\CameraView.h">
       <Filter>Header Files\Core\View</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BirdsOfParadise\BoPCameraController.h">
+    <ClInclude Include="..\Classes\BoPCameraController.h">
       <Filter>Header Files\BirdsOfParadise\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BoPAppDelegate.h">
+      <Filter>Header Files\BirdsOfParadise</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
