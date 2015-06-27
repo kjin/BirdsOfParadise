@@ -1,7 +1,6 @@
 #include "BirdsOfParadise.h"
 #include "BoPBulletController.h"
 #include "BoPBulletManager.h"
-#include "BoPGameState.h"
 #include "BoPPlaneModel.h"
 #include "BoPTurret.h"
 #include "BoPBullet.h"

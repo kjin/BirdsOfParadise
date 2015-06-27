@@ -147,6 +147,9 @@
     <ClCompile Include="..\Classes\BoPAppDelegate.cpp">
       <Filter>Source Files\BirdsOfParadise</Filter>
     </ClCompile>
+    <ClCompile Include="..\CorvusCore\GameManager.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -197,12 +200,6 @@
     <ClInclude Include="..\CorvusCore\Array2D.h">
       <Filter>Header Files\Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BoPGameState.h">
-      <Filter>Header Files\BirdsOfParadise\Model</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\BoPGameController.h">
-      <Filter>Header Files\BirdsOfParadise\Controller</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\BirdsOfParadise.h">
       <Filter>Header Files\BirdsOfParadise</Filter>
     </ClInclude>
@@ -242,9 +239,6 @@
     <ClInclude Include="..\CorvusCore\GameView.h">
       <Filter>Header Files\Core\View</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\BoPGameView.h">
-      <Filter>Header Files\BirdsOfParadise\View</Filter>
-    </ClInclude>
     <ClInclude Include="..\CorvusCore\CameraView.h">
       <Filter>Header Files\Core\View</Filter>
     </ClInclude>
@@ -253,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\BoPAppDelegate.h">
       <Filter>Header Files\BirdsOfParadise</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CorvusCore\GameManager.h">
+      <Filter>Header Files\Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

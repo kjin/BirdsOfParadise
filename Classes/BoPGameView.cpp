@@ -3,7 +3,6 @@
 #include "GenUtils.h"
 #include "GLProgramManager.h"
 #include "GameState.h"
-#include "BoPGameView.h"
 #include "Model.h"
 #include "BoPPlaneModel.h"
 #include "BoPBulletManager.h"

@@ -2,10 +2,10 @@
 // Controls the player plane.
 
 #include "BoPPlayerController.h"
-#include "BoPGameState.h"
 #include "InputState.h"
 #include "BoPPlaneModel.h"
 #include "BoPTurret.h"
+#include "GameState.h"
 
 using namespace cocos2d;
 

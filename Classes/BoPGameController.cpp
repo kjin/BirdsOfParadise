@@ -1,8 +1,5 @@
 #include "cocos2d.h"
 #include "BirdsOfParadise.h"
-#include "BoPGameController.h"
-#include "BoPGameState.h"
-#include "BoPGameView.h"
 #include "BoPPlayerController.h"
 #include "BoPBulletManager.h"
 #include "BoPBulletController.h"
@@ -11,9 +8,9 @@
 
 using namespace cocos2d;
 
-bool BoPGameController::init()
+bool BoPGameController::init(GameState* gameState)
 {
-	if (!GameController::init())
+	if (!GameController::init(gameState))
 	{
 		return false;
 	}
@@ -21,14 +18,6 @@ bool BoPGameController::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
 	Director::getInstance()->getRenderer()->setClearColor(Color4F::WHITE);
-
-	// Model
-	auto gameState = BoPGameState::create();
-	setGameState(gameState);
-
-	// View
-	auto gameView = BoPGameView::create(gameState);
-	setGameView(gameView);
 
 	// Controller
 	addController(PlayerController::create(gameState, gameState->getModel(VID_SINGLETON, IID_PLAYER)));

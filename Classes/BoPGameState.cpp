@@ -1,5 +1,4 @@
 #include "BirdsOfParadise.h"
-#include "BoPGameState.h"
 #include "BoPPlaneModel.h"
 #include "BoPBulletManager.h"
 #include "BoPDefinitions.h"
